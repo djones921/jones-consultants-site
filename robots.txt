@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jones-consultants.com/sitemap.xml
