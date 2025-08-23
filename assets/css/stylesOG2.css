@@ -23,24 +23,15 @@ nav a.btn{color:#fff}
 .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
 main{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory}
 section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center}
-.hero {
-  padding: 120px 0;
-  text-align: center;
-  background: #111;
-}
+.hero{padding:64px 0;background:#000;border-bottom:1px solid var(--border)}
 .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
 .hero h1{font-size:40px;line-height:1.1;margin:0 0 8px;color:var(--brand)}
 .hero .sub{color:var(--muted);margin:0 0 16px}
 .ctas .btn{margin-right:10px;margin-bottom:8px}
 .badges{display:flex;gap:12px;flex-wrap:wrap;padding:0;margin:18px 0 0;list-style:none}
 .badges li{padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:var(--card);font-size:14px;color:var(--muted)}
-.section {
-  padding: 80px 0;
-  background: #000; /* dark default */
-}
-.section.alt {
-  background: #111; /* lighter dark */
-}
+.section{padding:56px 0;background:#000}
+.section.alt{background:#111;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:var(--card);border:1px solid var(--border);padding:18px;border-radius:16px}
 .card h3{margin-top:0;color:var(--brand)}
