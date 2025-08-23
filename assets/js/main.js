@@ -1,14 +1,23 @@
-function handleContact(e){
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  alert(`Thanks, ${data.name}! We'll be in touch at ${data.email}.`);
-}
-// FAQ accordion
-document.addEventListener('click', (e)=>{
-  if(e.target.classList.contains('faq-q')){
-    const ans = e.target.nextElementSibling;
-    const open = ans.style.display === 'block';
-    document.querySelectorAll('.faq .faq-a').forEach(a=>a.style.display='none');
-    ans.style.display = open ? 'none' : 'block';
-  }
+// Smooth FAQ toggle
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const a=btn.nextElementSibling;
+    a.style.display = a.style.display==='block' ? 'none' : 'block';
+  });
 });
+
+// Scrollspy for nav links
+const sections = document.querySelectorAll('main > section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+function activateLink() {
+  let index = sections.length;
+
+  while(--index && window.scrollY + 60 < sections[index].offsetTop) {}
+  
+  navLinks.forEach((link) => link.classList.remove('active'));
+  if(navLinks[index]) navLinks[index].classList.add('active');
+}
+
+activateLink();
+window.addEventListener('scroll', activateLink);
