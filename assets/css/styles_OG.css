@@ -64,24 +64,3 @@ section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center
 }
 
 nav a.active{color:var(--brand);font-weight:700;border-bottom:2px solid var(--brand)}
-
-/* Smooth underline animation for nav links */
-nav a {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: var(--brand);
-  transition: width 0.3s ease;
-}
-
-nav a.active::after {
-  width: 100%;
-}
