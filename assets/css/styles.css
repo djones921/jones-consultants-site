@@ -21,8 +21,21 @@ nav a.btn{color:#fff}
 .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;transition:background .3s}
 .btn:hover{background:var(--brand-2)}
 .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-main{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory}
-section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center}
+/* Body scroll (no inner scroller), no snap */
+main{
+  height:auto;
+  overflow:visible;
+}
+
+section{
+  min-height:auto;            /* let content define height */
+  padding:72px 0;             /* roomy sections */
+  display:flex;
+  align-items:center;
+}
+
+/* Make images naturally responsive */
+img{max-width:100%;height:auto;display:block}
 .hero{padding:64px 0;background:#000;border-bottom:1px solid var(--border)}
 .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
 .hero h1{font-size:40px;line-height:1.1;margin:0 0 8px;color:var(--brand)}
@@ -61,7 +74,20 @@ section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center
 @media (max-width: 900px){
   .hero-inner, .grid-2, .services-grid, .footer-grid{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
+
+  /* Smaller, readable hero */
+  .hero{padding:48px 0}
+  .hero h1{font-size:28px; line-height:1.2}
+  .hero .sub{font-size:16px}
+
+  /* Header tweaks */
+  .nav{padding:10px 0}
+  nav a{margin-left:12px; font-size:15px}
+
+  /* Sections shouldn't vertically center huge content on mobile */
+  section{padding:56px 0; align-items:flex-start}
 }
+
 
 /* 🔴 Active nav link highlight in brand red */
 nav a {
