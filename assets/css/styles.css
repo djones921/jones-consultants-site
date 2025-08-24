@@ -63,4 +63,18 @@ section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center
   .cards{grid-template-columns:1fr}
 }
 
-nav a.active{color:var(--brand);font-weight:700;border-bottom:2px solid var(--brand)}
+/* 🔴 Active nav link highlight in brand red */
+nav a {
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--brand);
+  border-bottom: 2px solid var(--brand);
+}
+
+nav a.active {
+  color: var(--brand);
+  font-weight: 700;
+  border-bottom: 2px solid var(--brand);
+}
