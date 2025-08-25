@@ -1,4 +1,4 @@
-// FAQ toggle (with simple show/hide)
+// FAQ toggle
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const a = btn.nextElementSibling;
@@ -6,7 +6,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Smooth scroll for in-page links (with header offset)
+// Smooth scroll with header offset
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const targetId = link.getAttribute('href').slice(1);
@@ -14,7 +14,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     if (!targetEl) return;
 
     e.preventDefault();
-    const headerOffset = 80; // sticky header height
+    const headerOffset = 80;
     const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - headerOffset;
 
@@ -25,7 +25,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   });
 });
 
-// Scrollspy using IntersectionObserver (mobile & desktop)
+// Scrollspy
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
   const sections = navLinks
@@ -45,12 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (visible) setActive(visible.target.id);
   }, {
     root: null,
-    rootMargin: '-35% 0px -55% 0px',
-    threshold: [0.1, 0.25, 0.5, 0.75]
+    rootMargin: '-40% 0px -50% 0px',
+    threshold: [0.25, 0.5, 0.75]
   });
 
   sections.forEach(sec => observer.observe(sec));
 
-  // Ensure "Home" is active at very top
   if (window.scrollY < 10) setActive('hero');
 });
