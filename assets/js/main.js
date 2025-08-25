@@ -1,6 +1,4 @@
-// assets/js/main.js
-
-// FAQ toggle
+// FAQ toggle (with simple show/hide)
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const a = btn.nextElementSibling;
@@ -8,48 +6,51 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// Smooth scroll for in-page links
+// Smooth scroll for in-page links (with header offset)
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     const targetId = link.getAttribute('href').slice(1);
     const targetEl = document.getElementById(targetId);
     if (!targetEl) return;
+
     e.preventDefault();
-    targetEl.scrollIntoView({ behavior: 'smooth' });
+    const headerOffset = 80; // sticky header height
+    const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
   });
 });
 
-// Scrollspy using IntersectionObserver (works on mobile & desktop)
+// Scrollspy using IntersectionObserver (mobile & desktop)
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
   const sections = navLinks
     .map(l => document.querySelector(l.getAttribute('href')))
     .filter(Boolean);
 
-  // Helper to set active link
   const setActive = (id) => {
     navLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
     });
   };
 
-  // Observe section visibility around viewport center-ish
   const observer = new IntersectionObserver((entries) => {
-    // Pick the most visible entry
     const visible = entries
       .filter(e => e.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (visible) setActive(visible.target.id);
   }, {
     root: null,
-    // This focuses detection to the middle band of the screen,
-    // making the highlight feel natural while scrolling.
     rootMargin: '-35% 0px -55% 0px',
     threshold: [0.1, 0.25, 0.5, 0.75]
   });
 
   sections.forEach(sec => observer.observe(sec));
 
-  // Ensure "Home" is active at the very top
+  // Ensure "Home" is active at very top
   if (window.scrollY < 10) setActive('hero');
 });
