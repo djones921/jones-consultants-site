@@ -1,0 +1,22 @@
+# Content Calendar — /insights/
+
+Twelve posts, one per month, each targeting an informational query from `SEO_KEYWORD_MAP.md` with clear commercial intent behind it (the reader is planning or running a capital project). Posts 1–3 are written and shipped in this PR. Every post links to at least two service pages with descriptive anchors and to the contact page.
+
+Rules: 800–1,200 words · answer-first opening · H2 sections · no client names, no project specifics beyond what is on `/experience/` · every claim generic to the industry or drawn from the firm's stated experience · `Article` schema with `author` → Drew Jones (Person) and `publisher` → JCS Engineering (Organization).
+
+| # | Status | Title | Target keyword | Outline | Internal links to |
+|---|---|---|---|---|---|
+| 1 | **Published** | What an Owner's Engineer Does on a Pharmaceutical Capital Project — and When to Bring One In | what does an owner's representative do pharma | The gap on the owner's side · what the role covers by phase · owner's rep vs CM vs A/E · when it pays for itself · what to look for | project-engineering, construction-oversight, contact |
+| 2 | **Published** | CQV Planning Starts in Design: Keeping Qualification Off the Critical Path | when should CQV planning start | Why CQV slips · impact assessment during design · URS-to-protocol traceability · FAT as a qualification lever · the handover package · a phase-by-phase checklist | cqv, engineering-design, contact |
+| 3 | **Published** | Facility Fit-Gap Assessment for Tech Transfer: A Working Checklist | facility fit gap assessment checklist | What "fit" means · the seven gap categories (capacity, utilities, materials compatibility, classification, cleaning, automation, documentation) · scoring and closing gaps · common surprises | optimization-tech-transfer, engineering-design, contact |
+| 4 | Planned | URS vs. Basis of Design: Who Writes What, and Why Both Matter | URS vs basis of design | Definitions · authorship · how they feed design and qualification · failure modes | engineering-design, cqv |
+| 5 | Planned | Stage Gates for Biotech Capex: A Six-Phase Model That Keeps Leadership Informed | stage gate capital project pharmaceutical | Why gates · the six phases · gate criteria · what the deck at each gate should contain | project-engineering, approach |
+| 6 | Planned | Building Inside an Operating GMP Facility Without Stopping Production | construction in operating pharmaceutical plant | Risk map · containment and pressure cascades · shutdown windows · change control · communication | construction-oversight, change-risk-compliance |
+| 7 | Planned | FAT vs. SAT: What Each Test Should Prove, and What It Shouldn't | FAT SAT difference pharmaceutical equipment | Definitions · scope splits · leverage of FAT for schedule · common gaps · protocol structure | cqv, engineering-design |
+| 8 | Planned | Black Utilities Startup Sequencing for a New Biologics Site | black utilities startup sequence | Utility dependency tree · chilled water, steam, soft water, compressed air · what process CQV needs first | cqv, construction-oversight |
+| 9 | Planned | ASTM E2500 vs. Traditional IQ/OQ: Choosing a Qualification Approach | ASTM E2500 vs IQ OQ | Both models · when risk-based verification fits · documentation implications · regulator expectations | cqv, change-risk-compliance |
+| 10 | Planned | Single-Use vs. Stainless: Facility Design Consequences Owners Underestimate | single use vs stainless facility design | Utilities, footprint, CIP/SIP, waste, changeover, capex/opex trade | engineering-design, optimization-tech-transfer |
+| 11 | Planned | North Carolina's Biomanufacturing Corridor: What It Means for Capital Project Staffing | biomanufacturing North Carolina engineering | The hubs (RTP, Holly Springs, Clayton, Sanford, Wilson) · demand for CQV and project engineering · how owners staff programs | service-areas, project-engineering |
+| 12 | Planned | Ten Questions to Ask Before Hiring an Engineering Consultant for a cGMP Project | questions to ask engineering consultant | Licensure · owner-side experience · phase coverage · staffing model · documentation habits · references | about, faq, contact |
+
+**Cadence:** publish one post per month, first Tuesday. Share on LinkedIn (company + personal) the same day and as a Google Business Profile post the same week. Refresh posts 1–3 after twelve months with a new `dateModified`.

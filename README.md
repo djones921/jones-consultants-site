@@ -41,6 +41,12 @@ There is no build step. The files in this repo are served exactly as they are.
 /about/                about/index.html
 /contact/              contact/index.html
 /privacy/              privacy/index.html
+/capabilities/<slug>/  six service pages        (generated)
+/service-areas/        service-areas/index.html
+/experience/           experience/index.html
+/faq/                  faq/index.html
+/insights/             insights/index.html + /insights/<slug>/ posts
+/llms.txt, /humans.txt, /site.webmanifest, /<indexnow-key>.txt
 /404.html                                    Custom not-found page
 /assets/css/styles.css                       All styling (one file)
 /assets/js/main.js                           Mobile nav, FAQ, form submission, reveal animation
@@ -62,8 +68,8 @@ Edit the relevant `index.html` directly. Two things to know:
 - **The header and footer are repeated in every page.** If you change a nav link, phone number, or footer line, change it in all seven HTML files (`index.html`, the six `*/index.html`, and `404.html`). Search the repo for the old text to find every copy.
 - **Ampersands are written as `&amp;`** in the HTML. Write `Design &amp; CQV`, not `Design & CQV`.
 
-### Editing styles or JavaScript — read this first
-Every HTML file loads the stylesheet and script with a **version stamp**:
+### Editing styles or JavaScript
+Every HTML file loads the stylesheet and script with a **version stamp** (now set automatically by `tools/build.py` — run the build after any CSS/JS change):
 
 ```html
 <link rel="stylesheet" href="/assets/css/styles.css?v=2c090a25" />
@@ -174,6 +180,24 @@ Fonts are self-hosted in `/assets/fonts/`; there is no Google Fonts, analytics, 
 2. **Hard-refresh** the site (Ctrl+Shift+R / Cmd+Shift+R) or open it in a private window.
 3. If something still looks stale and you changed CSS or JS: confirm the `?v=` stamps were updated (see *Making changes*). If they were, purge Cloudflare's cache: your domain → **Caching** → **Configuration** → **Purge Everything**.
 4. Check one page on a phone.
+
+---
+
+## SEO build system (added September 2026)
+
+Pages are **generated**, not hand-edited. The source of truth is `tools/siteconfig.py` (business facts, services, FAQs, posts metadata) and `tools/posts.py` (article bodies); `tools/build.py` renders every page, `robots.txt`, `sitemap.xml`, `llms.txt`, `site.webmanifest`, the IndexNow key file, and `docs/seo_page_inventory.csv`.
+
+```bash
+python3 tools/build.py      # regenerate everything; fails if a title > 60 chars, a description is outside 140–160, or a page has ≠ 1 <h1>
+```
+
+Edit content in `tools/siteconfig.py`, run the build, commit the result. Hand-editing an `index.html` will be overwritten on the next build and fails CI ("committed HTML is out of date"). Asset URLs are versioned automatically by the build — you no longer need to bump `?v=` by hand.
+
+**Open fields to fill** (`None` in `siteconfig.py`; omitted from output until set): address basis, geo coordinates, hours, LinkedIn URLs, Google Business Profile URL, founding year, Search Console and Bing verification tokens. See `docs/SEO_OWNER_CHECKLIST.md` §0.
+
+**CI:** `.github/workflows/seo-check.yml` runs on every pull request — build freshness, html-validate, link check (lychee), Lighthouse CI budgets (`lighthouserc.json`). `.github/workflows/indexnow.yml` notifies Bing/IndexNow after each deploy to `main`.
+
+**SEO documents** (`docs/`, served with `X-Robots-Tag: noindex`): `SEO_AUDIT.md` · `SEO_KEYWORD_MAP.md` · `SEO_CONTENT_CALENDAR.md` · `SEO_OWNER_CHECKLIST.md` · `SEO_RESULTS.md` · `seo_page_inventory.csv`.
 
 ---
 
