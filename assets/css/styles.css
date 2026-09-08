@@ -110,7 +110,7 @@ p{margin:0}
 .logo img{height:42px;width:auto}
 
 .primary-nav{display:flex;align-items:center;gap:28px}
-.primary-nav a{
+.primary-nav a:not(.btn){
   font-size:.9375rem;font-weight:500;color:var(--muted);
   position:relative;padding:6px 0;
   transition:color .2s var(--ease);
@@ -436,10 +436,10 @@ p{margin:0}
     transition:transform .28s var(--ease),opacity .2s var(--ease),visibility .28s;
   }
   .primary-nav.open{transform:none;opacity:1;visibility:visible}
-  .primary-nav a{padding:16px 8px;font-size:1.0625rem;border-bottom:1px solid var(--line)}
+  .primary-nav a:not(.btn){padding:16px 8px;font-size:1.0625rem;border-bottom:1px solid var(--line)}
   .primary-nav a:not(.btn)::after{display:none}
   .primary-nav a:not(.btn).active{color:var(--red)}
-  .primary-nav .btn{margin-top:18px;border-bottom:0}
+  .primary-nav .btn{margin-top:18px;padding:14px 18px;font-size:1rem}
   .lifecycle li{padding-right:0}
 }
 
