@@ -1,0 +1,53 @@
+name: SEO & quality check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Regenerate pages and confirm the committed output is current
+        run: |
+          python3 tools/build.py
+          git diff --exit-code -- '*.html' robots.txt sitemap.xml llms.txt site.webmanifest || {
+            echo "::error::Committed HTML is out of date. Run python3 tools/build.py and commit the result."; exit 1; }
+
+      - name: Validate HTML
+        run: |
+          npm install --no-save html-validate@9
+          npx html-validate --config .htmlvalidate.json index.html 404.html '*/index.html' '*/*/index.html'
+
+      - name: Serve site
+        run: |
+          npx --yes http-server -p 8100 -s &
+          sleep 2
+          curl -sf http://127.0.0.1:8100/ > /dev/null
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --base http://127.0.0.1:8100
+            --remap 'https://jcseng.com http://127.0.0.1:8100'
+            --no-progress
+            --exclude 'google\.com|gstatic\.com|formspree\.io|linkedin\.com|ncbels\.org|cloudflare\.com|policies\.google'
+            --exclude-path docs --exclude-path tools --exclude-path node_modules
+            'index.html' '404.html' '*/index.html' '*/*/index.html'
+          fail: true
+
+      - name: Lighthouse CI (budgets in lighthouserc.json)
+        run: |
+          npm install --no-save @lhci/cli@0.14
+          npx lhci autorun

@@ -1,0 +1,11 @@
+/* TEAM */
+JCS Engineering PLLC
+Principal: Drew W. Jones, PE
+Location: Raleigh, North Carolina, US
+Contact: drew@jcseng.com
+
+/* SITE */
+Last update: 2026-09-08
+Standards: HTML5, CSS3, vanilla JS, JSON-LD
+Fonts: Inter, IBM Plex Mono (self-hosted)
+Hosting: Cloudflare Pages
