@@ -11,7 +11,7 @@ import siteconfig as C
 from posts import POST_BODIES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TODAY = datetime.date.today().isoformat()
+TODAY = C.CONTENT_DATE
 SITE, BRAND, LEGAL = C.SITE, C.BRAND, C.LEGAL
 ORG_ID, PERSON_ID, SITE_ID = SITE + "/#organization", SITE + "/about/#drew-jones", SITE + "/#website"
 
@@ -604,7 +604,7 @@ def post_page(p):
 
 def about():
     P = C.PRINCIPAL
-    facts = [("Legal name", LEGAL), ("Founded by", "Drew W. Jones, PE"), ("Based in", f'{C.ADDRESS["locality"]}, North Carolina'),
+    facts = [("Legal name", LEGAL), ("Founded by", "Drew W. Jones, PE"), ("Office", f'{C.ADDRESS["street"] + ", " if C.ADDRESS.get("street") else ""}{C.ADDRESS["locality"]}, NC {C.ADDRESS.get("postal") or ""}'.strip()),
              ("Serves", "The Research Triangle and North Carolina; projects also delivered in Massachusetts"),
              ("Firm license", f"NC Board of Examiners for Engineers &amp; Surveyors, {P['firm_lic']}"), ("Principal's license", f"Professional Engineer, North Carolina, No. {P['pe_no']}"),
              ("Industries", "Pharmaceutical · Biotechnology · Advanced manufacturing"), ("Services", ", ".join(s["title"] for s in C.SERVICES))]
@@ -651,7 +651,7 @@ def contact():
         {eyebrow("Reach Us")}
         <h2>Direct line to an engineer.</h2>
         <ul class="contact-list">
-          <li><span class="mono">LOCATION</span><span>{C.ADDRESS["locality"]}, North Carolina — {C.SERVICE_AREA_LINE.lower()}</span></li>
+          <li><span class="mono">ADDRESS</span><span>{C.ADDRESS["street"] + "<br>" if C.ADDRESS.get("street") else ""}{C.ADDRESS["locality"]}, {C.ADDRESS["region"]} {C.ADDRESS.get("postal") or ""}<br><span class="dim">{C.SERVICE_AREA_LINE}</span></span></li>
           <li><span class="mono">PHONE</span><a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a></li>
           <li><span class="mono">EMAIL</span><a href="mailto:{C.EMAIL}">{C.EMAIL}</a></li>
         </ul>
@@ -684,7 +684,7 @@ def contact():
       </form>
       <template id="form-success-tpl"><div class="form-success">{CHECK}<h3>Message received.</h3><p>Thanks — we'll be in touch within one business day. If it's time-sensitive, call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>.</p></div></template>
     </div></section>
-    <div class="map-section"><iframe title="Map of the Raleigh, North Carolina area" src="{C.MAP_SRC}" width="1200" height="420" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="map-section"><iframe title="Map showing the JCS Engineering office at 5540 Centerview Drive, Raleigh, North Carolina" src="{C.MAP_SRC}" width="1200" height="420" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 '''
     ld = ld_graph(ld_webpage("/contact/", title, desc, "ContactPage", {"mainEntity": {"@id": ORG_ID}}), ld_breadcrumbs(crumbs))
     return page("/contact/", title, desc, body, ld)
@@ -709,9 +709,9 @@ def privacy():
         <li><strong>Cloudflare</strong> hosts and serves this website and provides security services. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</li>
         <li><strong>Google Maps</strong> provides the embedded map on the contact page. Loading it sends a request to Google, which may set cookies according to <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>. The map only loads when you scroll to it.</li>
       </ul>
-      <p>Fonts are served from our own domain, not from a third-party font service. We notify search engines of new pages through the IndexNow protocol; that sends them our page URLs and nothing about you.</p>
+      <p>Fonts are served from our own domain, not from a third-party font service. We notify search engines of new pages through the IndexNow protocol; that sends them our page URLs and nothing about you. We may use <strong>Cloudflare Web Analytics</strong> to count page views; it is cookieless, does not fingerprint devices, and does not track you across sites — see <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">how it works</a>.</p>
       <h2>Cookies</h2>
-      <p>We do not set cookies for analytics, advertising, or tracking. The embedded Google Map may set its own cookies when it loads, as described above.</p>
+      <p>We do not set cookies for analytics, advertising, or tracking; Cloudflare Web Analytics works without cookies. The embedded Google Map may set its own cookies when it loads, as described above.</p>
       <h2>How long we keep it</h2>
       <p>Contact-form inquiries are kept as long as needed to respond and, where an inquiry leads to an engagement, as part of our business records. You can ask us to delete your inquiry at any time.</p>
       <h2>Your choices</h2>

@@ -11,7 +11,7 @@ Everything here requires a login the site cannot hold (Google, Bing, LinkedIn, C
 | Phone | `(704) 500-3033` |
 | Website | `https://jcseng.com/` |
 | Email | `drew@jcseng.com` |
-| City / State | `Raleigh, NC` **[VERIFY — brief says Knightdale; whichever is on the Google Business Profile wins, and the site's `tools/siteconfig.py` must be updated to match]** |
+| Address | `5540 Centerview Dr, Ste 200-210, Raleigh, NC 27606` |
 | Category wording | `Engineering consultant` |
 
 ---
@@ -20,11 +20,11 @@ Everything here requires a login the site cannot hold (Google, Bing, LinkedIn, C
 
 Open `tools/siteconfig.py` and set the `None` values, then run `python3 tools/build.py` and commit (or send the values to Claude):
 
-- `ADDRESS` — city, and street/postal only if you publish an address
-- `GEO` — latitude/longitude of the address (right-click the pin in Google Maps → copy coordinates)
-- `HOURS` — exactly as set on Google Business Profile
-- `PROFILES.linkedin_company`, `PROFILES.linkedin_person`, `PROFILES.google_business`
-- `FOUNDING_YEAR`
+- ~~`ADDRESS`~~ set (5540 Centerview Dr, Ste 200-210, Raleigh, NC 27606)
+- `GEO` — latitude/longitude of the office: in Google Maps right-click the building at 5540 Centerview Dr → click the coordinates line to copy → send to Claude
+- `HOURS` — set **after** fixing the profile hours (see §1); "Open 24 hours" must not be copied to the site
+- ~~`PROFILES.linkedin_company`, `PROFILES.google_business`~~ set · `PROFILES.linkedin_person` — still needed
+- ~~`FOUNDING_YEAR`~~ intentionally left unset (owner preference)
 - `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` (from §3 below)
 
 Until these are set the site omits those fields rather than publishing placeholders.
@@ -34,6 +34,12 @@ Until these are set the site omits those fields rather than publishing placehold
 ## 1. Google Business Profile (highest impact — do this week)
 
 Go to https://business.google.com → your profile → **Edit profile**.
+
+> **Fix these four things first — they were visible on the profile on 2026-09-08:**
+> 1. **The map pin is in the Chesapeake Bay.** The profile's coordinates are 38.71, −75.88 (off Maryland's Eastern Shore), not Raleigh. Until this is fixed the business cannot appear in any Raleigh-area local search. *Edit profile → Location → Business location → enter `5540 Centerview Dr Ste 200-210, Raleigh, NC 27606` → drag the pin onto the building → Save.* Google may ask to re-verify by postcard or video; do it.
+> 2. **Hours show "Open 24 hours."** Consultancies that claim 24-hour service look automated to Google and to prospects. Set real hours (e.g. Mon–Fri 8:00–5:00) and then copy them into `HOURS` in `tools/siteconfig.py`.
+> 3. **Primary category is "Design engineer."** Change it to **Engineering consultant** and add "Design engineer" as a secondary category (see list below) — "Engineering consultant" is what buyers search and is the category the site's schema aligns to.
+> 4. **The description differs from the website.** Replace it with the 736-character description below so every source describes the business identically.
 
 **Business name:** `JCS Engineering PLLC`
 
@@ -129,7 +135,7 @@ In the Cloudflare dashboard for the `jcseng.com` zone:
 - **Workers & Pages → the project → Custom domains:** ensure both `jcseng.com` and `www.jcseng.com` are attached.
 - **Rules → Redirect Rules → Create rule:** *When* hostname equals `www.jcseng.com` → *Then* dynamic redirect to `concat("https://jcseng.com", http.request.uri.path)`, status **301**, preserve query string. This enforces the non-www canonical the site declares.
 - **Caching → Configuration → Purge Everything** once after the PR merges.
-- Optional, free, cookieless: **Web Analytics** → add `jcseng.com` → the beacon domain is already allowed in the site's CSP. (Prefer this over GA4; GA4 would require a cookie disclosure in the privacy policy.)
+- **Web Analytics (owner asked for this — free, cookieless, no code):** Workers & Pages → the Pages project → **Settings → Web Analytics → Enable**. Cloudflare injects its beacon automatically on every page; the site's Content-Security-Policy already allows it and the privacy policy already describes it. Reports appear under Analytics & Logs → Web Analytics within a day. Do not add GA4.
 
 ---
 

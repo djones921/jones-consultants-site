@@ -11,7 +11,7 @@ SITE = "https://jcseng.com"
 BRAND = "JCS Engineering"
 LEGAL = "JCS Engineering PLLC"
 TAGLINE = "Project engineering, design, CQV and project management for regulated manufacturing"
-FOUNDING_YEAR = None          # [VERIFY] e.g. "2025"
+FOUNDING_YEAR = None          # owner prefers not to publish (founded 2026); leave None
 LOCALE = "en_US"
 
 # ---- NAP (must match Google Business Profile exactly) ------------------------------------
@@ -20,21 +20,22 @@ PHONE_PLAIN = "(704) 500-3033"
 PHONE_E164 = "+17045003033"
 EMAIL = "drew@jcseng.com"
 ADDRESS = dict(
-    street=None,              # [VERIFY] publish a street address, or leave None for a service-area business
-    locality="Raleigh",       # [VERIFY] owner brief mentions Knightdale, NC — confirm which city is on the GBP
+    street="5540 Centerview Dr, Ste 200-210",
+    locality="Raleigh",
     region="NC",
-    postal=None,              # [VERIFY]
+    postal="27606",
     country="US",
 )
-GEO = None                    # [VERIFY] dict(lat=35.7796, lng=-78.6382) once the address is confirmed
-HOURS = None                  # [VERIFY] e.g. [("Monday","Friday","08:00","17:00")] to match GBP
+GEO = None                    # [VERIFY] dict(lat=..., lng=...) — right-click the building in Google Maps, copy coordinates
+HOURS = None                  # [VERIFY] set once GBP shows real hours (currently "Open 24 hours" — change it there first), e.g. [("Monday","Friday","08:00","17:00")]
 SERVICE_AREA_LINE = "Serving the Research Triangle and North Carolina"
+CONTENT_DATE = "2026-09-08"   # sitemap lastmod / humans.txt date; bump when content changes (keeps the build deterministic for CI)
 
 # ---- Profiles (sameAs) — only emitted when set ---------------------------------------------
 PROFILES = dict(
-    linkedin_company=None,    # [VERIFY] https://www.linkedin.com/company/...
+    linkedin_company="https://www.linkedin.com/company/jcseng/",
     linkedin_person=None,     # [VERIFY] https://www.linkedin.com/in/...
-    google_business=None,     # [VERIFY] https://maps.app.goo.gl/... or https://g.page/...
+    google_business="https://www.google.com/maps/place/JCS+Engineering+PLLC/data=!4m2!3m1!1s0xa5d75401ea2be2d9:0x93acc8abfa3897e5",
     nc_board_lookup="https://www.ncbels.org/",   # public licence lookup portal
 )
 
@@ -45,9 +46,7 @@ INDEXNOW_KEY = "9f3a6c2e8d4b4f1a9c7e5b2d8a6f4c3e"   # 32-hex key; file /<key>.tx
 
 # ---- Third parties -------------------------------------------------------------------------
 FORMSPREE = "https://formspree.io/f/xqadzgzp"
-MAP_SRC = ("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207000.2269721877!2d-78.80968749148508!3d35.83972033149112"
-           "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f51e0f7%3A0x6790b6528a11f0ad!2sRaleigh%2C%20NC"
-           "!5e0!3m2!1sen!2sus!4v1756083745882!5m2!1sen!2sus")
+MAP_SRC = "https://www.google.com/maps?q=5540+Centerview+Dr+Ste+200,+Raleigh,+NC+27606&output=embed"
 
 # ---- Geography ------------------------------------------------------------------------------
 AREA_SERVED = [  # (name, type)  — emitted as schema.org City / AdministrativeArea / State

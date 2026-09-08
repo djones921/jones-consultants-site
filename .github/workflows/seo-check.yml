@@ -40,6 +40,7 @@ jobs:
         with:
           args: >-
             --base http://127.0.0.1:8100
+            --remap 'https://jcseng.com http://127.0.0.1:8100'
             --no-progress
             --exclude 'google\.com|gstatic\.com|formspree\.io|linkedin\.com|ncbels\.org|cloudflare\.com|policies\.google'
             --exclude-path docs --exclude-path tools --exclude-path node_modules
