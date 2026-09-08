@@ -1,59 +1,133 @@
-// assets/js/main.js
+/* JCS Engineering — site behaviour */
+(function () {
+  'use strict';
 
-// FAQ toggle
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const a = btn.nextElementSibling;
-    a.style.display = a.style.display === 'block' ? 'none' : 'block';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------------------------------------------------------
+     Current year
+     --------------------------------------------------------------- */
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------------------------------------------------------------
+     Mobile navigation
+     --------------------------------------------------------------- */
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('primary-nav');
+
+  function setNav(open) {
+    if (!toggle || !nav) return;
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      setNav(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setNav(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) setNav(false);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 820) setNav(false);
+    });
+  }
+
+  /* ---------------------------------------------------------------
+     Header shadow on scroll
+     --------------------------------------------------------------- */
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------------------------------------------------------------
+     FAQ accordion
+     --------------------------------------------------------------- */
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    var panel = btn.parentElement.nextElementSibling;
+    if (!panel) return;
+
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close siblings for a single-open accordion.
+      document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(function (other) {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        var op = other.parentElement.nextElementSibling;
+        if (op) op.hidden = true;
+      });
+
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
   });
-});
 
-// Smooth scroll for in-page links
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
-    const targetId = link.getAttribute('href').slice(1);
-    const targetEl = document.getElementById(targetId);
-    if (!targetEl) return;
-    e.preventDefault();
+  /* ---------------------------------------------------------------
+     Reveal on scroll
+     --------------------------------------------------------------- */
+  var revealables = document.querySelectorAll('.reveal');
 
-    // account for sticky header height
-    const headerOffset = document.querySelector('.site-header').offsetHeight;
-    const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - headerOffset + 5;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-  });
-});
+    revealables.forEach(function (el, i) {
+      // Stagger items within a grid so they cascade rather than pop together.
+      var siblingIndex = Array.prototype.indexOf.call(el.parentElement.children, el);
+      el.style.transitionDelay = Math.min(siblingIndex, 5) * 60 + 'ms';
+      revealObserver.observe(el);
+    });
+  }
 
-// Scrollspy using IntersectionObserver
-document.addEventListener('DOMContentLoaded', () => {
-  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
-  const sections = navLinks
-    .map(l => document.querySelector(l.getAttribute('href')))
+  /* ---------------------------------------------------------------
+     Scroll spy — highlight the section currently in view
+     --------------------------------------------------------------- */
+  var navLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.primary-nav a[href^="#"]:not(.btn)')
+  );
+  var sections = navLinks
+    .map(function (link) { return document.querySelector(link.getAttribute('href')); })
     .filter(Boolean);
 
-  // Helper to set active link
-  const setActive = (id) => {
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-    });
-  };
+  if (sections.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
 
-  const headerHeight = document.querySelector('.site-header').offsetHeight;
-
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) setActive(visible.target.id);
-  }, {
-    root: null,
-    rootMargin: `-${headerHeight + 20}px 0px -60% 0px`, // shift trigger down to account for sticky header
-    threshold: [0.2, 0.4, 0.6, 0.8]
-  });
-
-  sections.forEach(sec => observer.observe(sec));
-
-  // Ensure "Home" is active at the very top
-  if (window.scrollY < 10) setActive('hero');
-});
+    sections.forEach(function (section) { spy.observe(section); });
+  }
+})();

@@ -3,196 +3,383 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jones Consultants</title>
-  <meta name="description" content="Jones Consultants LLC — Project engineering, capital project lifecycle management, CQV, and owner representation for Pharma, Biotech, and Advanced Manufacturing." />
+
+  <title>JCS Engineering — Project Engineering &amp; Capital Project Management</title>
+  <meta name="description" content="JCS Engineering delivers project engineering, capital project lifecycle management, CQV, and owner's representation for pharmaceutical, biotech, and advanced manufacturing facilities." />
+  <link rel="canonical" href="https://jcseng.com/" />
+  <meta name="theme-color" content="#111318" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jcseng.com/" />
+  <meta property="og:site_name" content="JCS Engineering" />
+  <meta property="og:title" content="JCS Engineering — Project Engineering &amp; Capital Project Management" />
+  <meta property="og:description" content="Concept through CQV. Project engineering and owner's representation for pharma, biotech, and advanced manufacturing." />
+  <meta property="og:image" content="https://jcseng.com/assets/img/bioreactors.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "JCS Engineering",
+    "url": "https://jcseng.com/",
+    "email": "drew@jcseng.com",
+    "telephone": "+1-704-500-3033",
+    "areaServed": "United States",
+    "address": { "@type": "PostalAddress", "addressLocality": "Raleigh", "addressRegion": "NC", "addressCountry": "US" },
+    "description": "Project engineering, capital project lifecycle management, CQV, and owner's representation for pharmaceutical, biotech, and advanced manufacturing."
+  }
+  </script>
 </head>
 <body>
-  <!-- Fixed Header -->
- <header class="site-header">
-  <div class="container nav">
-    <a href="#home" class="logo">
-      <img src="assets/img/logo.svg" alt="Jones Consultants Logo">
-    </a>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero" class="hero section">
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a href="#top" class="logo" aria-label="JCS Engineering — home">
+        <img src="assets/img/logo.svg" alt="JCS Engineering" width="180" height="114" />
+      </a>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#lifecycle">Lifecycle</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-sm">Schedule a Call</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero grid-bg">
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Expert Project Engineering & Capital Project Management</h1>
-          <p class="sub">From conceptual design through CQV and continuous improvement — we deliver with precision, compliance, and care.</p>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="tick"></span>Project Engineering &amp; Owner's Representation</p>
+          <h1>Capital projects delivered with <em>engineering discipline</em>.</h1>
+          <p class="lede">
+            From conceptual design through commissioning, qualification, and validation —
+            JCS Engineering guides pharmaceutical, biotech, and advanced manufacturing
+            projects to a compliant, operational handover.
+          </p>
           <div class="ctas">
             <a class="btn" href="#contact">Schedule a Call</a>
-            <a class="btn ghost" href="#services">Explore Services</a>
+            <a class="btn ghost" href="#capabilities">View Capabilities</a>
           </div>
-          <ul class="badges">
-            <li>8+ years experience</li>
-            <li>cGMP &amp; GxP expertise</li>
-            <li>On-site &amp; remote</li>
+
+          <dl class="stats">
+            <div><dt>8+</dt><dd>Years in capital projects</dd></div>
+            <div><dt>cGMP</dt><dd>&amp; GxP regulated environments</dd></div>
+            <div><dt>Concept<span>→</span>CQV</dt><dd>Full lifecycle coverage</dd></div>
+          </dl>
+        </div>
+
+        <figure class="hero-art reveal">
+          <div class="frame">
+            <img src="assets/img/bioreactors.jpg" alt="Stainless steel bioreactor vessels in a GMP manufacturing suite" width="1200" height="800" loading="eager" />
+          </div>
+          <figcaption><span class="mono">FIG. 01</span> Upstream bioprocess suite</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE / CREDENTIAL STRIP ============ -->
+    <div class="strip">
+      <div class="container strip-inner">
+        <span>Pharmaceutical</span>
+        <span>Biotechnology</span>
+        <span>Advanced Manufacturing</span>
+        <span>cGMP &amp; GxP</span>
+        <span>Raleigh, NC</span>
+        <span>On-site &amp; Remote</span>
+      </div>
+    </div>
+
+    <!-- ============ CAPABILITIES ============ -->
+    <section id="capabilities" class="section">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="tick"></span>Capabilities</p>
+          <h2>What we do</h2>
+          <p class="section-sub">
+            Ten core services spanning the full arc of a capital project — engaged individually
+            or as an integrated scope of work.
+          </p>
+        </header>
+
+        <ol class="cap-grid">
+          <li class="cap reveal">
+            <span class="num">01</span>
+            <h3>Project Engineering &amp; Owner's Representation</h3>
+            <p>Acting as an extension of your team to protect scope, budget, schedule, and quality from kickoff through closeout.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">02</span>
+            <h3>Capital Project Lifecycle Management</h3>
+            <p>Coordinated management of every stage gate from concept through CQV, with clear deliverables at each handoff.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">03</span>
+            <h3>Conceptual &amp; Front-End Design Support</h3>
+            <p>Basis of design, user requirement specifications, and early cost and constructability input before capital is committed.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">04</span>
+            <h3>Construction Administration &amp; Oversight</h3>
+            <p>Field coordination, submittal and RFI management, and progress verification against the design intent.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">05</span>
+            <h3>CQV Execution</h3>
+            <p>Commissioning, qualification, and validation planning and execution to bring systems to a documented, GMP-ready state.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">06</span>
+            <h3>Change Management &amp; Risk Mitigation</h3>
+            <p>Structured change control and proactive risk registers that keep late-stage surprises out of the critical path.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">07</span>
+            <h3>Process Optimization &amp; Tech Transfer</h3>
+            <p>Support for moving processes between scales, suites, or sites while preserving product quality and compliance.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">08</span>
+            <h3>Facility Expansion &amp; Master Planning</h3>
+            <p>Long-range capacity and site planning that sequences growth without disrupting current production.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">09</span>
+            <h3>Regulatory &amp; GMP Compliance Readiness</h3>
+            <p>Documentation, traceability, and inspection readiness built into the project rather than retrofitted at the end.</p>
+          </li>
+          <li class="cap reveal">
+            <span class="num">10</span>
+            <h3>Continuous Improvement &amp; Post-Project Support</h3>
+            <p>Post-handover tuning, punch resolution, and lessons-learned capture that carry value past startup.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ LIFECYCLE ============ -->
+    <section id="lifecycle" class="section section-dark grid-bg-dark">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="tick"></span>Delivery Model</p>
+          <h2>The capital project lifecycle</h2>
+          <p class="section-sub">
+            We engage at any stage — but the earlier we're involved, the more risk and cost
+            we can design out before it becomes rework.
+          </p>
+        </header>
+
+        <ol class="lifecycle">
+          <li class="reveal"><span class="phase">Phase 01</span><h3>Concept</h3><p>Business case, capacity basis, and early feasibility.</p></li>
+          <li class="reveal"><span class="phase">Phase 02</span><h3>Design</h3><p>Basis of design, URS, and front-end engineering.</p></li>
+          <li class="reveal"><span class="phase">Phase 03</span><h3>Procurement</h3><p>Vendor selection, FAT planning, and long-lead management.</p></li>
+          <li class="reveal"><span class="phase">Phase 04</span><h3>Construction</h3><p>Field oversight, coordination, and progress verification.</p></li>
+          <li class="reveal"><span class="phase">Phase 05</span><h3>CQV</h3><p>Commissioning, qualification, and validation execution.</p></li>
+          <li class="reveal"><span class="phase">Phase 06</span><h3>Handover</h3><p>GMP-ready turnover and continuous improvement.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section id="industries" class="section section-alt">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="tick"></span>Industries</p>
+          <h2>Where we work</h2>
+        </header>
+        <div class="ind-grid">
+          <article class="ind reveal">
+            <h3>Pharmaceutical</h3>
+            <p>Oral solid dose, sterile fill-finish, and API facilities operating under cGMP with the documentation rigor that implies.</p>
+          </article>
+          <article class="ind reveal">
+            <h3>Biotechnology</h3>
+            <p>Upstream and downstream bioprocessing, single-use and stainless platforms, and the utilities that support them.</p>
+          </article>
+          <article class="ind reveal">
+            <h3>Advanced Manufacturing</h3>
+            <p>High-precision and highly regulated production environments where uptime and traceability are non-negotiable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="tick"></span>About</p>
+          <h2>Engineering judgment, on your side of the table</h2>
+          <p class="lede">
+            JCS Engineering is a specialized consulting partner focused on project engineering
+            and capital project execution for the pharmaceutical, biotech, and advanced
+            manufacturing industries.
+          </p>
+          <p>
+            We guide projects from early concept through design, construction, CQV, and ongoing
+            optimization — making sure every investment delivers lasting value and hands over in
+            a state your operations and quality teams can actually run.
+          </p>
+        </div>
+
+        <ul class="diff reveal">
+          <li>
+            <h3>Trusted Partner</h3>
+            <p>Acting as an extension of your team, we protect the owner's interests and keep compliance, quality, and performance the priority.</p>
+          </li>
+          <li>
+            <h3>Expertise with Agility</h3>
+            <p>Capital project experience without the overhead of a large firm — we adapt the engagement to what the project actually needs.</p>
+          </li>
+          <li>
+            <h3>Lifecycle Coverage</h3>
+            <p>From conceptual planning through change management, execution, CQV, and GMP-ready handover.</p>
+          </li>
+          <li>
+            <h3>Operational Insight</h3>
+            <p>Hands-on GMP operations experience means we design and execute projects that minimize disruption to business-critical activities.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="section section-alt">
+      <div class="container narrow">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="tick"></span>FAQ</p>
+          <h2>Frequently asked questions</h2>
+        </header>
+
+        <div class="faq reveal">
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">What industries do you serve?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>We specialize in pharmaceutical, biotech, and advanced manufacturing.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">Do you provide on-site support?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>Yes — we offer both on-site and remote consulting arrangements, and often a blend of the two depending on project phase.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">Can you act as an owner's representative?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>Yes. We can serve as the owner's representative to safeguard project goals, budgets, timelines, and regulatory compliance.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">At what stage should we engage JCS Engineering?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>We can add value at any stage — from early site planning and design through CQV execution and post-project continuous improvement. Early engagement maximizes efficiency and risk reduction.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">Do you work on both small and large capital projects?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>Yes. We have experience with both targeted facility upgrades and major site-wide expansion projects.</p></div>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" aria-expanded="false">How do you minimize disruption to operations?<span class="chev" aria-hidden="true"></span></button></h3>
+            <div class="faq-a" hidden><p>By leveraging GMP operations knowledge, careful scheduling, and disciplined change management, we execute projects that align with production needs and minimize downtime.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section section-dark grid-bg-dark">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="tick"></span>Contact</p>
+          <h2>Let's scope your project</h2>
+          <p class="lede">Tell us where the project stands and we'll get back to you within one business day.</p>
+
+          <ul class="contact-list">
+            <li><span class="mono">LOCATION</span><span>Raleigh, North Carolina</span></li>
+            <li><span class="mono">PHONE</span><a href="tel:+17045003033">(704) 500-3033</a></li>
+            <li><span class="mono">EMAIL</span><a href="mailto:drew@jcseng.com">drew@jcseng.com</a></li>
           </ul>
         </div>
-        <div class="hero-art">
-          <img src="assets/img/bioreactors.jpg" alt="Consulting illustration" />
-        </div>
+
+        <form class="contact-form reveal" action="https://formspree.io/f/xqadzgzp" method="POST">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" type="text" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cf-company">Company <span class="opt">(optional)</span></label>
+            <input id="cf-company" type="text" name="company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="cf-message">Project details</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+          <p class="form-note">We'll respond within one business day.</p>
+        </form>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section alt">
-      <div class="container">
-        <h2>Our Services</h2>
-        <p>Supporting pharma, biotech, and advanced manufacturing clients across the full capital project lifecycle.</p>
-        <ul class="cards">
-          <li>Project Engineering & Owner Representation</li>
-          <li>Capital Project Lifecycle Management (Concept → CQV)</li>
-          <li>Conceptual & Front-End Design Support</li>
-          <li>Construction Administration & Oversight</li>
-          <li>CQV (Commissioning, Qualification & Validation) Execution</li>
-          <li>Change Management & Risk Mitigation</li>
-          <li>Process Optimization & Tech Transfer</li>
-          <li>Facility Expansion & Master Planning</li>
-          <li>Regulatory & GMP Compliance Readiness</li>
-          <li>Continuous Improvement & Post-Project Support</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About Us</h2>
-        <p>Jones Consultants is a specialized consulting partner focused on project engineering and capital project execution for the pharmaceutical, biotech, and advanced manufacturing industries. We guide projects from early concept through design, construction, CQV, and ongoing optimization, ensuring that every investment delivers lasting value.</p>
-
-        <h3>What Makes Us Different</h3>
-        <ul>
-
-          <li><strong>Trusted Partner:</strong> Acting as an extension of your team, we protect the owner’s interests and ensure that compliance, quality, and performance remain the priority.</li>
-          <li><strong>Project Expertise with Agility:</strong> We bring capital project experience and can adapt to meet your needs.</li>
-          <li><strong>Lifecycle Project Management:</strong> From conceptual planning to change management and project execution, CQV, and GMP-ready handover, Jones Consultants can deliver experience.</li>
-          <li><strong>Operational Insight:</strong> With hands-on GMP operations experience, we design and execute projects that minimize disruption to business-critical activities.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section alt">
-      <div class="container">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-          <button class="faq-q">What industries do you serve?</button>
-          <div class="faq-a">We specialize in pharma, biotech, and advanced manufacturing.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Do you provide on-site support?</button>
-          <div class="faq-a">Yes, we offer both on-site and remote consulting options.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Can you act as an owner’s representative?</button>
-          <div class="faq-a">Yes. We can serve as the owner’s representative to safeguard project goals, budgets, timelines, and regulatory compliance.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">At what stage of a project should we engage Jones Consultants?</button>
-          <div class="faq-a">We can provide value at any stage—from early site planning and design through CQV execution and post-project continuous improvement. Early engagement maximizes efficiency and risk reduction.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Do you work with both small and large capital projects?</button>
-          <div class="faq-a">Absolutely. Our team has experience with both targeted facility upgrades and major site-wide expansion projects.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">How do you minimize disruption to operations?</button>
-          <div class="faq-a">By leveraging GMP operations knowledge, careful scheduling, and change management practices, we execute projects that align with production needs and minimize downtime.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-<section id="contact" class="section alt">
-  <div class="container grid-2">
-    <div>
-      <h2>Contact Us</h2>
-      <form class="contact-form" action="https://formspree.io/f/xqadzgzp" method="POST">
-        <label>
-          Name
-          <input type="text" name="name" required>
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required>
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="5" required></textarea>
-        </label>
-        <button type="submit" class="btn">Send Message</button>
-        <p class="form-note">We will get back to you within 24 hours.</p>
-      </form>
+    <div class="map-section">
+      <iframe
+        title="Map of the Raleigh, North Carolina service area"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207000.2269721877!2d-78.80968749148508!3d35.83972033149112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f51e0f7%3A0x6790b6528a11f0ad!2sRaleigh%2C%20NC!5e0!3m2!1sen!2sus!4v1756083745882!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div>
-      <h3>Our Office</h3>
-      <ul class="contact-list">
-        <li>📍 Raleigh, NC</li>
-        <li>📞 (704) 500-3033</li>
-        <li>✉️ drew@jones-consultants.com</li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </main>
 
-<!-- Full-width map below -->
-<div class="map-section">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207000.2269721877!2d-78.80968749148508!3d35.83972033149112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5a2f9f51e0f7%3A0x6790b6528a11f0ad!2sRaleigh%2C%20NC!5e0!3m2!1sen!2sus!4v1756083745882!5m2!1sen!2sus"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</div>
-
-
-  <!-- Footer -->
   <footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <a href="#home" class="logo">
-        <img src="assets/img/logo.svg" alt="Jones Consultants Logo">
-      </a>
-      <p>Delivering expert consulting services with precision and care.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="JCS Engineering — home">
+          <img src="assets/img/logo-inverse.svg" alt="JCS Engineering" width="180" height="114" />
+        </a>
+        <p>Project engineering and capital project delivery for regulated manufacturing.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#lifecycle">Lifecycle</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Raleigh, NC</li>
+          <li><a href="tel:+17045003033">(704) 500-3033</a></li>
+          <li><a href="mailto:drew@jcseng.com">drew@jcseng.com</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <div class="container legal">
+      <p>&copy; <span id="year">2026</span> JCS Engineering. All rights reserved.</p>
+      <p class="mono">jcseng.com</p>
     </div>
-    <div>
-      <h4>Contact</h4>
-      <p>📍 Raleigh, NC</p>
-      <p>📞 (704) 500-3033</p>
-      <p>✉️ drew@jones-consultants.com</p>
-    </div>
-  </div>
-  <div class="legal">
-    <p>&copy; 2025 Jones Consultants LLC. All rights reserved.</p>
-  </div>
-</footer>
-
+  </footer>
 
   <script src="assets/js/main.js"></script>
 </body>
