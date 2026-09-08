@@ -43,7 +43,7 @@ There is no build step. The files in this repo are served exactly as they are.
 /privacy/              privacy/index.html
 /capabilities/<slug>/  six service pages        (generated)
 /service-areas/        service-areas/index.html
-/experience/           experience/index.html
+/experience/           (unpublished — PUBLISH_EXPERIENCE=False in tools/siteconfig.py)
 /faq/                  faq/index.html
 /insights/             insights/index.html + /insights/<slug>/ posts
 /llms.txt, /humans.txt, /site.webmanifest, /<indexnow-key>.txt

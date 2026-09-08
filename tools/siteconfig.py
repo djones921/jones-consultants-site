@@ -340,4 +340,6 @@ POSTS = [
       excerpt="Tech transfer fails on the gaps nobody assessed: a gasket, a utility, a room classification. This checklist is the one we work through before a process moves anywhere."),
 ]
 
-NAV = [("/", "Home"), ("/capabilities/", "Capabilities"), ("/approach/", "Approach"), ("/experience/", "Experience"), ("/insights/", "Insights"), ("/about/", "About")]
+NAV = [("/", "Home"), ("/capabilities/", "Capabilities"), ("/approach/", "Approach"), ("/about/", "About")]
+# Insights stays published (footer, home section, service pages) but is kept out of the primary nav by owner preference.
+PUBLISH_EXPERIENCE = False   # owner: not public at this time. Set True to publish /experience/ and restore its links.

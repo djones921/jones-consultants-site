@@ -241,6 +241,7 @@ def standards_html():
 def footer():
     caps = "".join(f'<li><a href="{svc_url(s)}">{s["title"]}</a></li>' for s in C.SERVICES)
     addr = (f'{C.ADDRESS["street"]}<br>' if C.ADDRESS.get("street") else "") + f'{C.ADDRESS["locality"]}, {C.ADDRESS["region"]}' + (f' {C.ADDRESS["postal"]}' if C.ADDRESS.get("postal") else "")
+    exp_li = '<li><a href="/experience/">Experience</a></li>' if C.PUBLISH_EXPERIENCE else ""
     hours = ""
     if C.HOURS:
         def _12(t):
@@ -268,7 +269,7 @@ def footer():
         <ul>
           <li><a href="/capabilities/">Capabilities</a></li>
           <li><a href="/approach/">Approach</a></li>
-          <li><a href="/experience/">Experience</a></li>
+          {exp_li}
           <li><a href="/insights/">Insights</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/contact/">Contact</a></li>
@@ -322,6 +323,7 @@ def home():
     caps = "".join(f'<li class="reveal"><a href="{svc_url(c)}"><span class="num">{c["n"]}</span><span><strong>{c["title"]}</strong><span class="d">{c["short"]}</span></span>{MORE}</a></li>' for c in C.SERVICES)
     inds = "".join(f'<article class="ind reveal"><h3>{i["title"]}</h3><p>{i["body"]}</p></article>' for i in C.INDUSTRIES)
     posts = "".join(f'<article class="card reveal"><p class="eyebrow"><span class="tick"></span>{p["minutes"]} min read</p><h3><a href="{post_url(p)}">{p["title"]}</a></h3><p>{p["excerpt"]}</p><a class="link-arrow" href="{post_url(p)}">Read the article {ARROW}</a></article>' for p in C.POSTS)
+    exp_link = f'<a class="link-arrow link-muted" href="/experience/">Representative experience {ARROW}</a>' if C.PUBLISH_EXPERIENCE else ""
     title = "JCS Engineering PLLC | Pharma Project Engineers, Raleigh NC"
     desc = "Licensed NC engineering firm providing project engineering, design, CQV and project management for pharmaceutical, biotech and advanced manufacturing clients."
     body = f'''
@@ -379,7 +381,7 @@ def home():
           <h2>A licensed firm that scales to the work.</h2>
           <p class="lede">One engineer for a targeted upgrade, or a coordinated team for a site-wide program — every engagement is led by a licensed Professional Engineer and built on hands-on GMP operations experience.</p>
           <p class="p-body">Based in the Raleigh area, we serve North Carolina's biomanufacturing corridor — Research Triangle Park, Durham, Holly Springs, Clayton, Sanford, Wilson, and Greenville — on-site, remotely, or in a hybrid arrangement. <a href="/service-areas/">See our service area</a>.</p>
-          <div class="ctas"><a class="link-arrow" href="/about/">About the firm {ARROW}</a><a class="link-arrow link-muted" href="/experience/">Representative experience {ARROW}</a></div>
+          <div class="ctas"><a class="link-arrow" href="/about/">About the firm {ARROW}</a>{exp_link}</div>
         </div>
         <ul class="diff reveal">
           <li><h3>Trusted partner</h3><p>An extension of your team, protecting the owner's interests with compliance, quality, and performance as the priority.</p></li>
@@ -613,6 +615,7 @@ def about():
              ("Industries", "Pharmaceutical · Biotechnology · Advanced manufacturing"), ("Services", ", ".join(s["title"] for s in C.SERVICES))]
     if C.FOUNDING_YEAR: facts.insert(2, ("Founded", C.FOUNDING_YEAR))
     facts_html = "".join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k, v in facts)
+    about_links = ('See <a href="/experience/">representative experience</a> and <a href="/insights/">Insights</a>.' if C.PUBLISH_EXPERIENCE else 'Read our <a href="/insights/">Insights</a>.')
     title = "About the Firm | JCS Engineering PLLC"
     desc = "JCS Engineering PLLC is a licensed North Carolina engineering firm led by Drew Jones, PE: project engineering, design, CQV and project management for cGMP."
     crumbs = [("Home", "/"), ("About", None)]
@@ -635,7 +638,7 @@ def about():
             <li>{P["education"]}, {P["school"]}</li>
             <li>Lean Six Sigma Green Belt</li>
           </ul>
-          <p class="p-body">See <a href="/experience/">representative experience</a> and <a href="/insights/">Insights</a>.</p>
+          <p class="p-body">{about_links}</p>
         </div>
       </div>
     </div></section>
@@ -784,7 +787,7 @@ def llms_txt():
              "- Clients: manufacturing owners, CDMOs, and the design firms and contractors that serve them", ""]
     if C.FOUNDING_YEAR: lines.insert(6, f"- Founded: {C.FOUNDING_YEAR}")
     lines += ["## Services"] + [f"- [{unesc(s['title'])}]({SITE}{svc_url(s)}): {unesc(s['short'])}" for s in C.SERVICES] + [""]
-    lines += ["## Key pages", f"- [Capabilities]({SITE}/capabilities/)", f"- [Approach — stage-gate delivery, engagement models, standards]({SITE}/approach/)", f"- [Representative experience]({SITE}/experience/)",
+    lines += ["## Key pages", f"- [Capabilities]({SITE}/capabilities/)", f"- [Approach — stage-gate delivery, engagement models, standards]({SITE}/approach/)", *([f"- [Representative experience]({SITE}/experience/)"] if C.PUBLISH_EXPERIENCE else []),
               f"- [Service areas]({SITE}/service-areas/)", f"- [About and leadership]({SITE}/about/)", f"- [FAQ]({SITE}/faq/)", f"- [Contact]({SITE}/contact/)", ""]
     lines += ["## Insights"] + [f"- [{unesc(p['title'])}]({SITE}{post_url(p)}): {unesc(p['excerpt'])}" for p in C.POSTS] + [""]
     lines += ["## Optional", f"- [Privacy policy]({SITE}/privacy/)", f"- [Sitemap]({SITE}/sitemap.xml)", ""]
@@ -841,7 +844,7 @@ if __name__ == "__main__":
     for s in C.SERVICES: write(svc_url(s) + "index.html", service_page(s))
     write("approach/index.html", approach())
     write("service-areas/index.html", service_areas())
-    write("experience/index.html", experience())
+    if C.PUBLISH_EXPERIENCE: write("experience/index.html", experience())
     write("faq/index.html", faq_page())
     write("insights/index.html", insights_index())
     for p in C.POSTS: write(post_url(p) + "index.html", post_page(p))

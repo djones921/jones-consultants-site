@@ -22,7 +22,6 @@
 ## Key pages
 - [Capabilities](https://jcseng.com/capabilities/)
 - [Approach — stage-gate delivery, engagement models, standards](https://jcseng.com/approach/)
-- [Representative experience](https://jcseng.com/experience/)
 - [Service areas](https://jcseng.com/service-areas/)
 - [About and leadership](https://jcseng.com/about/)
 - [FAQ](https://jcseng.com/faq/)
