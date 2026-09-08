@@ -156,6 +156,7 @@ git push origin main
 | Version | Date | Commit | Archive branch | Notes |
 |---|---|---|---|---|
 | **v1.0.0** | 2026-09-08 | `e93d548` | `archive/v1.0.0-launch` | Launch version under the JCS Engineering brand. Six-page site, six services, vector logo, self-hosted fonts, cache-busted assets. |
+| **v1.1.0** | 2026-09-08 | `e87f6f6` | `archive/v1.1.0-seo` | SEO build: 19 indexable pages (six service pages, Insights with three articles, FAQ, Experience, Service Areas), 12 schema types, generator in `tools/`, CI guard, IndexNow, HSTS + CSP, office address and hours. |
 
 Add a row each time you archive.
 
