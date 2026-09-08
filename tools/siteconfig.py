@@ -26,15 +26,15 @@ ADDRESS = dict(
     postal="27606",
     country="US",
 )
-GEO = None                    # [VERIFY] dict(lat=..., lng=...) — right-click the building in Google Maps, copy coordinates
-HOURS = None                  # [VERIFY] set once GBP shows real hours (currently "Open 24 hours" — change it there first), e.g. [("Monday","Friday","08:00","17:00")]
+GEO = dict(lat=35.762964, lng=-78.732141)   # 5540 Centerview Dr, from Google Maps
+HOURS = [("Monday", "Friday", "06:00", "17:00")]   # matches Google Business Profile: Mon–Fri 6:00 AM–5:00 PM, Sat–Sun closed
 SERVICE_AREA_LINE = "Serving the Research Triangle and North Carolina"
 CONTENT_DATE = "2026-09-08"   # sitemap lastmod / humans.txt date; bump when content changes (keeps the build deterministic for CI)
 
 # ---- Profiles (sameAs) — only emitted when set ---------------------------------------------
 PROFILES = dict(
     linkedin_company="https://www.linkedin.com/company/jcseng/",
-    linkedin_person=None,     # [VERIFY] https://www.linkedin.com/in/...
+    linkedin_person="https://www.linkedin.com/in/drewjones2",
     google_business="https://www.google.com/maps/place/JCS+Engineering+PLLC/data=!4m2!3m1!1s0xa5d75401ea2be2d9:0x93acc8abfa3897e5",
     nc_board_lookup="https://www.ncbels.org/",   # public licence lookup portal
 )

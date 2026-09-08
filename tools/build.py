@@ -243,7 +243,10 @@ def footer():
     addr = (f'{C.ADDRESS["street"]}<br>' if C.ADDRESS.get("street") else "") + f'{C.ADDRESS["locality"]}, {C.ADDRESS["region"]}' + (f' {C.ADDRESS["postal"]}' if C.ADDRESS.get("postal") else "")
     hours = ""
     if C.HOURS:
-        hours = "<br>" + " · ".join(f'{a[:3]}–{b[:3]} {op}–{cl}' for a, b, op, cl in C.HOURS)
+        def _12(t):
+            h, m = map(int, t.split(":")); s = "AM" if h < 12 else "PM"; h = h % 12 or 12
+            return f"{h}:{m:02d}&nbsp;{s}" if m else f"{h}&nbsp;{s}"
+        hours = "<br>" + " · ".join(f'{a[:3]}–{b[:3]} {_12(op)}–{_12(cl)}' for a, b, op, cl in C.HOURS)
     return f'''
   </main>
 
