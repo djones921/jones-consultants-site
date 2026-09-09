@@ -17,18 +17,18 @@
 - [Construction Administration & Oversight](https://jcseng.com/capabilities/construction-oversight/): Field coordination and verification that what's built matches what was designed.
 - [Commissioning, Qualification & Validation](https://jcseng.com/capabilities/cqv/): Planning and execution from commissioning plan through IQ, OQ, and PQ.
 - [Change, Risk & Compliance Management](https://jcseng.com/capabilities/change-risk-compliance/): Structured change control, living risk registers, and inspection-ready documentation.
-- [Process Optimization & Tech Transfer](https://jcseng.com/capabilities/optimization-tech-transfer/): Moving and improving processes across scales, suites, and sites — and supporting them after startup.
+- [Process Optimization & Tech Transfer](https://jcseng.com/capabilities/optimization-tech-transfer/): Moving and improving processes across scales, suites, and sites, and supporting them after startup.
 
 ## Key pages
 - [Capabilities](https://jcseng.com/capabilities/)
-- [Approach — stage-gate delivery, engagement models, standards](https://jcseng.com/approach/)
+- [Approach: stage-gate delivery, engagement models, standards](https://jcseng.com/approach/)
 - [Service areas](https://jcseng.com/service-areas/)
 - [About and leadership](https://jcseng.com/about/)
 - [FAQ](https://jcseng.com/faq/)
 - [Contact](https://jcseng.com/contact/)
 
 ## Insights
-- [What an Owner's Engineer Does on a Pharmaceutical Capital Project — and When to Bring One In](https://jcseng.com/insights/owners-engineer-pharmaceutical-capital-project/): Every party on a capital project has a contract to protect. An owner's engineer is the one whose only interest is yours. Here is what the role covers, phase by phase, and how to know when you need one.
+- [What an Owner's Engineer Does on a Pharmaceutical Capital Project, and When to Bring One In](https://jcseng.com/insights/owners-engineer-pharmaceutical-capital-project/): Every party on a capital project has a contract to protect. An owner's engineer is the one whose only interest is yours. Here is what the role covers, phase by phase, and how to know when you need one.
 - [CQV Planning Starts in Design: Keeping Qualification Off the Critical Path](https://jcseng.com/insights/cqv-planning-starts-in-design/): Qualification is usually the last thing to start and the first thing blamed for a late startup. Most of the delay was decided months earlier, during design. Here is how to decide it differently.
 - [Facility Fit-Gap Assessment for Tech Transfer: A Working Checklist](https://jcseng.com/insights/facility-fit-gap-assessment-tech-transfer/): Tech transfer fails on the gaps nobody assessed: a gasket, a utility, a room classification. This checklist is the one we work through before a process moves anywhere.
 

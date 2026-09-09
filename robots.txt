@@ -1,4 +1,4 @@
-# jcseng.com — all major search and AI crawlers welcome; utility paths excluded.
+# jcseng.com: all major search and AI crawlers welcome; utility paths excluded.
 User-agent: *
 Allow: /
 Disallow: /docs/

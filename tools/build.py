@@ -41,7 +41,7 @@ def ld_org():
     o = {"@type": "ProfessionalService", "@id": ORG_ID, "name": BRAND, "legalName": LEGAL, "url": SITE + "/",
          "logo": {"@type": "ImageObject", "url": SITE + "/assets/img/logo.svg"},
          "image": SITE + "/assets/img/og-card.png", "telephone": "+1-704-500-3033", "email": C.EMAIL,
-         "description": unesc(C.TAGLINE) + " — pharmaceutical, biotech and advanced manufacturing.",
+         "description": unesc(C.TAGLINE) + ": pharmaceutical, biotech and advanced manufacturing.",
          "address": {"@type": "PostalAddress", "addressLocality": C.ADDRESS["locality"], "addressRegion": C.ADDRESS["region"], "addressCountry": C.ADDRESS["country"]},
          "areaServed": [{"@type": t, "name": n} for n, t in C.AREA_SERVED],
          "founder": {"@id": PERSON_ID}, "employee": {"@id": PERSON_ID},
@@ -148,7 +148,7 @@ def head(title, desc, path, ld, og_type="website", noindex=False, article=None):
   <meta property="og:image" content="{SITE}/assets/img/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="JCS Engineering — project engineering, design and CQV for regulated manufacturing" />{art}
+  <meta property="og:image:alt" content="JCS Engineering: project engineering, design and CQV for regulated manufacturing" />{art}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{title}" />
   <meta name="twitter:description" content="{desc}" />
@@ -175,7 +175,7 @@ def header(path):
     return f'''
   <header class="site-header" id="top">
     <div class="container nav">
-      <a href="/" class="logo" aria-label="{BRAND} — home">
+      <a href="/" class="logo" aria-label="{BRAND} home">
         <img src="/assets/img/logo.svg" alt="{BRAND}" width="180" height="114" />
       </a>
       <nav id="primary-nav" class="primary-nav" aria-label="Primary">
@@ -214,7 +214,7 @@ def page_head(crumbs, h1, lede, extra=""):
     </section>
 '''
 
-def cta_band(h="Let's talk about your project.", p="Tell us where it stands — concept, design, construction, or startup — and we'll come back within one business day."):
+def cta_band(h="Let's talk about your project.", p="Tell us where it stands, whether concept, design, construction, or startup, and we'll come back within one business day."):
     return f'''
     <section class="section-dark grid-bg-dark cta-band">
       <div class="container inner">
@@ -254,7 +254,7 @@ def footer():
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo" aria-label="{BRAND} — home">
+        <a href="/" class="logo" aria-label="{BRAND} home">
           <img src="/assets/img/logo-inverse.svg" alt="{BRAND}" width="180" height="114" loading="lazy" />
         </a>
         <address class="nap">
@@ -332,7 +332,7 @@ def home():
         <div class="hero-copy reveal">
           {eyebrow("Project Engineering for Regulated Manufacturing")}
           <h1>Capital projects delivered with <em>engineering discipline</em>.</h1>
-          <p class="lede">JCS Engineering provides project engineering, design, CQV, and project management for pharmaceutical, biotech, and advanced manufacturing facilities in the Research Triangle and across North Carolina — from concept through qualified handover.</p>
+          <p class="lede">JCS Engineering provides project engineering, design, CQV, and project management for pharmaceutical, biotech, and advanced manufacturing facilities in the Research Triangle and across North Carolina, from concept through qualified handover.</p>
           <div class="ctas">
             <a class="btn" href="/contact/">Start a conversation {ARROW}</a>
             <a class="btn ghost" href="/capabilities/">What we do</a>
@@ -361,7 +361,7 @@ def home():
     <section id="capabilities" class="section">
       <div class="container">
         <header class="section-head reveal">{eyebrow("What We Do")}<h2>Six services across the capital project lifecycle.</h2>
-          <p class="section-sub">Engineering and project services for regulated manufacturing — engaged individually or as an integrated scope, and scaled from a single owner's engineer to an embedded project team.</p></header>
+          <p class="section-sub">Engineering and project services for regulated manufacturing, engaged individually or as an integrated scope, and scaled from a single owner's engineer to an embedded project team.</p></header>
         <ol class="cap-list">{caps}</ol>
         <div class="ctas"><a class="link-arrow" href="/capabilities/">All capabilities in detail {ARROW}</a></div>
       </div>
@@ -379,13 +379,13 @@ def home():
         <div class="reveal">
           {eyebrow("Why JCS Engineering")}
           <h2>A licensed firm that scales to the work.</h2>
-          <p class="lede">One engineer for a targeted upgrade, or a coordinated team for a site-wide program — every engagement is led by a licensed Professional Engineer and built on hands-on GMP operations experience.</p>
-          <p class="p-body">Based in the Raleigh area, we serve North Carolina's biomanufacturing corridor — Research Triangle Park, Durham, Holly Springs, Clayton, Sanford, Wilson, and Greenville — on-site, remotely, or in a hybrid arrangement. <a href="/service-areas/">See our service area</a>.</p>
+          <p class="lede">One engineer for a targeted upgrade, or a coordinated team for a site-wide program. Every engagement is led by a licensed Professional Engineer and built on hands-on GMP operations experience.</p>
+          <p class="p-body">Based in the Raleigh area, we serve North Carolina's biomanufacturing corridor (Research Triangle Park, Durham, Holly Springs, Clayton, Sanford, Wilson, and Greenville) on-site, remotely, or in a hybrid arrangement. <a href="/service-areas/">See our service area</a>.</p>
           <div class="ctas"><a class="link-arrow" href="/about/">About the firm {ARROW}</a>{exp_link}</div>
         </div>
         <ul class="diff reveal">
           <li><h3>Trusted partner</h3><p>An extension of your team, protecting the owner's interests with compliance, quality, and performance as the priority.</p></li>
-          <li><h3>Expertise with agility</h3><p>Capital project experience without the overhead of a large firm — the engagement fits the project.</p></li>
+          <li><h3>Expertise with agility</h3><p>Capital project experience without the overhead of a large firm. The engagement fits the project.</p></li>
           <li><h3>Lifecycle coverage</h3><p>From conceptual planning through design, construction, CQV, and GMP-ready handover.</p></li>
           <li><h3>Operational insight</h3><p>Hands-on GMP operations experience means projects that minimize disruption to production.</p></li>
         </ul>
@@ -425,7 +425,7 @@ def capabilities():
     desc = "Six engineering services for pharma and biotech capital projects: project engineering, design, construction oversight, CQV, change management and tech transfer."
     crumbs = [("Home", "/"), ("Capabilities", None)]
     body = page_head(crumbs, "Engineering services for regulated manufacturing.",
-        "Six services covering a capital project from concept through a qualified, operating facility — engaged individually or as an integrated scope, for pharmaceutical, biotech, and advanced manufacturing owners in North Carolina.",
+        "Six services covering a capital project from concept through a qualified, operating facility, engaged individually or as an integrated scope, for pharmaceutical, biotech, and advanced manufacturing owners in North Carolina.",
         f'<nav class="cap-index reveal" aria-label="Capabilities">{idx}</nav>') + f'''
     <section class="section-tight"><div class="container narrow">{caps}</div></section>
     {cta_band("Not sure which of these you need?", "Most engagements start with a short conversation about where the project stands. We'll tell you plainly what would help.")}
@@ -460,7 +460,7 @@ def service_page(s):
         {faq_block(s["faq"])}
 
         <div class="svc-cta reveal">
-          <p>Ready to talk about {s["title"].lower()} on your project? Call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a> or <a href="/contact/">send us the details</a> — we respond within one business day.</p>
+          <p>Ready to talk about {s["title"].lower()} on your project? Call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a> or <a href="/contact/">send us the details</a>. We respond within one business day.</p>
         </div>
         {related_html(s)}
       </div>
@@ -474,14 +474,14 @@ def approach():
     steps = [("01", "Concept", "Turn a business need into a defensible project: capacity basis, options, order-of-magnitude cost, and the risks that decide whether it's worth pursuing."),
              ("02", "Design", "Lock intent before it's expensive to change: user requirements, basis of design, and owner-side review at each design milestone."),
              ("03", "Procurement", "Buy the right equipment from the right vendors, with FAT and delivery sequenced against the schedule."),
-             ("04", "Construction", "Verify that what's built matches what was designed — while protecting the operations next door."),
+             ("04", "Construction", "Verify that what's built matches what was designed while protecting the operations next door."),
              ("05", "CQV", "Bring systems to a documented, GMP-ready state with protocols that trace back to requirements."),
              ("06", "Handover", "Turn a construction project into a production asset: turnover packages, training, punch closure, and lessons learned.")]
     steps_html = "".join(f'<li class="reveal"><span class="n">PHASE {n}</span><div><h3>{t}</h3><p>{d}</p></div></li>' for n, t, d in steps)
     title = "Stage-Gate Project Delivery | JCS Engineering PLLC"
     desc = "How JCS Engineering delivers pharma and biotech capital projects: six phases with defined deliverables, four engagement models, and the standards we work to."
     crumbs = [("Home", "/"), ("Approach", None)]
-    body = page_head(crumbs, "How we work.", "Clear phases, defined deliverables, and one accountable engineer at each gate. Engagements are sized to the work — a scoped deliverable, milestone oversight, a full program, or staff embedded in your team.") + f'''
+    body = page_head(crumbs, "How we work.", "Clear phases, defined deliverables, and one accountable engineer at each gate. Engagements are sized to the work: a scoped deliverable, milestone oversight, a full program, or staff embedded in your team.") + f'''
     <section class="section"><div class="container narrow">
       <header class="section-head reveal">{eyebrow("Delivery")}<h2>Six phases, in order.</h2>
         <p class="section-sub">Each phase ends with defined deliverables and a go/no-go decision, so leadership sees a decision at every transition rather than a surprise at the end. <a href="/capabilities/project-engineering/">Project engineering and management</a> carries the thread across all six.</p></header>
@@ -490,7 +490,7 @@ def approach():
     <section class="section section-alt"><div class="container narrow">
       <header class="section-head reveal">{eyebrow("Engagement")}<h2>Shaped to the project</h2></header>
       <ul class="diff reveal">
-        <li><h3>Defined scope</h3><p>A specific deliverable — a <a href="/capabilities/engineering-design/">design package</a>, a <a href="/capabilities/cqv/">CQV package</a>, a fit-gap assessment, a design review — with a clear start and finish.</p></li>
+        <li><h3>Defined scope</h3><p>A specific deliverable with a clear start and finish: a <a href="/capabilities/engineering-design/">design package</a>, a <a href="/capabilities/cqv/">CQV package</a>, a fit-gap assessment, a design review.</p></li>
         <li><h3>Milestone oversight</h3><p>Part-time involvement concentrated at design reviews, gate decisions, FATs, and startup.</p></li>
         <li><h3>Full program</h3><p>Continuous, often on-site engineering and project management through the life of a project.</p></li>
         <li><h3>Embedded engineer or team</h3><p>Engineers, project managers, or CQV leads placed in your organization for the life of a program.</p></li>
@@ -515,7 +515,7 @@ def service_areas():
         f"JCS Engineering is based in the Raleigh area and works on-site, remotely, and in hybrid arrangements across the Research Triangle and the state's life-sciences manufacturing hubs. Firm License {C.PRINCIPAL['firm_lic']} covers engineering practice statewide.") + f'''
     <section class="section"><div class="container narrow svc">
       <h2>Where the work is</h2>
-      <p class="reveal">North Carolina has become one of the largest concentrations of pharmaceutical and biologics manufacturing in the United States, and almost all of it sits within a ninety-minute drive of Raleigh. That geography is why a Raleigh-based firm can offer on-site engineering, construction oversight, and CQV leadership without travel overhead — and why we know the contractors, design firms, vendors, and regulators our clients work with.</p>
+      <p class="reveal">North Carolina has become one of the largest concentrations of pharmaceutical and biologics manufacturing in the United States, and almost all of it sits within a ninety-minute drive of Raleigh. That geography is why a Raleigh-based firm can offer on-site engineering, construction oversight, and CQV leadership without travel overhead, and why we know the contractors, design firms, vendors, and regulators our clients work with.</p>
       <ul class="hubs">{hubs}</ul>
       <h2>Hub pages</h2>
       <ul class="hub-services reveal">{"".join(f'<li><a href="/service-areas/{h["slug"]}/"><strong>{h["name"]}</strong><span class="d">{unesc(h["meta"])}</span></a></li>' for h in C.HUB_PAGES)}</ul>
@@ -536,7 +536,7 @@ def hub_page(h):
     crumbs = [("Home", "/"), ("Service areas", "/service-areas/"), (h["name"], None)]
     what = "".join(f'<p class="reveal">{p}</p>' for p in h["what"])
     svcs = "".join(f'<li><a href="{svc_url(svc(sl))}"><strong>{svc(sl)["title"]}</strong><span class="d">{d}</span></a></li>' for sl, d in h["services"])
-    body = page_head(crumbs, h["h1"], f"JCS Engineering serves {h['name']} from Raleigh — {h['drive']} — with on-site, remote, and hybrid engagements under North Carolina Firm License {C.PRINCIPAL['firm_lic']}.") + f'''
+    body = page_head(crumbs, h["h1"], f"JCS Engineering serves {h['name']} from Raleigh ({h['drive']}) with on-site, remote, and hybrid engagements under North Carolina Firm License {C.PRINCIPAL['firm_lic']}.") + f'''
     <section class="section"><div class="container narrow svc">
       <h2>What the work looks like here</h2>
       {what}
@@ -645,7 +645,7 @@ def about():
     crumbs = [("Home", "/"), ("About", None)]
     body = page_head(crumbs, "About JCS Engineering.", "A licensed North Carolina engineering firm serving pharmaceutical, biotech, and advanced manufacturing.") + f'''
     <section class="section"><div class="container narrow">
-      <p class="about-para reveal">JCS Engineering PLLC provides project engineering, design, CQV, and project management to pharmaceutical, biotech, and advanced manufacturing clients. The firm was founded by Drew Jones, PE, a chemical engineer with more than eight years on the owner's side of cGMP capital projects — from process and mechanical design through construction, commissioning, and qualification — and it scales from a single engineer to a full project team, accountable for every engagement under its North Carolina engineering license.</p>
+      <p class="about-para reveal">JCS Engineering PLLC provides project engineering, design, CQV, and project management to pharmaceutical, biotech, and advanced manufacturing clients. The firm was founded by Drew Jones, PE, a chemical engineer with more than eight years on the owner's side of cGMP capital projects, from process and mechanical design through construction, commissioning, and qualification. The firm scales from a single engineer to a full project team, accountable for every engagement under its North Carolina engineering license.</p>
       <dl class="facts reveal">{facts_html}</dl>
     </div></section>
     <section class="section section-alt" id="leadership"><div class="container narrow">
@@ -675,7 +675,7 @@ def contact():
     title = "Contact Our Raleigh Engineering Firm | JCS Engineering PLLC"
     desc = "Contact JCS Engineering in Raleigh, NC about project engineering, design, CQV or owner's representation for a pharma or biotech project. Reply within a day."
     crumbs = [("Home", "/"), ("Contact", None)]
-    body = page_head(crumbs, "Let's scope your project.", "Tell us where the project stands — concept, mid-design, or already in the field. We respond within one business day.") + f'''
+    body = page_head(crumbs, "Let's scope your project.", "Tell us where the project stands: concept, mid-design, or already in the field. We respond within one business day.") + f'''
     <section class="section"><div class="container contact-grid">
       <div class="reveal">
         {eyebrow("Reach Us")}
@@ -689,10 +689,10 @@ def contact():
         <ol class="expect">
           <li><span class="n">01</span><div><strong>A reply within one business day</strong>From an engineer, not an autoresponder.</div></li>
           <li><span class="n">02</span><div><strong>A short scoping call</strong>Where the project stands, what's at risk, what a sensible engagement would look like.</div></li>
-          <li><span class="n">03</span><div><strong>A written proposal</strong>Scope, structure, and fees in plain language — or a straight answer if we're not the right fit.</div></li>
+          <li><span class="n">03</span><div><strong>A written proposal</strong>Scope, structure, and fees in plain language, or a straight answer if we're not the right fit.</div></li>
         </ol>
         <h3 class="mt-44">Useful to include</h3>
-        <p class="p-body">The facility and product type, the project phase, what is driving the timeline, and what has you concerned. If there is a URS, a schedule, or a drawing set, say so — we will ask to see it on the call. Whether you need <a href="/capabilities/project-engineering/">owner's representation</a>, <a href="/capabilities/engineering-design/">design</a>, <a href="/capabilities/cqv/">CQV</a>, or an <a href="/approach/">embedded engineer</a>, the first conversation is the same: technical, specific, and confidential.</p>
+        <p class="p-body">The facility and product type, the project phase, what is driving the timeline, and what has you concerned. If there is a URS, a schedule, or a drawing set, say so. We will ask to see it on the call. Whether you need <a href="/capabilities/project-engineering/">owner's representation</a>, <a href="/capabilities/engineering-design/">design</a>, <a href="/capabilities/cqv/">CQV</a>, or an <a href="/approach/">embedded engineer</a>, the first conversation is the same: technical, specific, and confidential.</p>
       </div>
       <form class="contact-form reveal" id="contact-form" action="{C.FORMSPREE}" method="POST" novalidate>
         <div class="form-row">
@@ -704,15 +704,15 @@ def contact():
           <div class="field"><label for="cf-phone">Phone <span class="opt">(optional)</span></label><input id="cf-phone" type="tel" name="phone" autocomplete="tel"></div>
         </div>
         <div class="field"><label for="cf-stage">Project stage</label>
-          <select id="cf-stage" name="project_stage"><option value="">Select one</option><option>Concept / feasibility</option><option>Design</option><option>Procurement</option><option>Construction</option><option>CQV / startup</option><option>Operating facility — improvement or expansion</option><option>Not sure yet</option></select></div>
+          <select id="cf-stage" name="project_stage"><option value="">Select one</option><option>Concept / feasibility</option><option>Design</option><option>Procurement</option><option>Construction</option><option>CQV / startup</option><option>Operating facility (improvement or expansion)</option><option>Not sure yet</option></select></div>
         <div class="field"><label for="cf-message">Project details</label><textarea id="cf-message" name="message" rows="5" required></textarea></div>
         <div class="hp" aria-hidden="true"><label for="cf-gotcha">Leave this field empty</label><input id="cf-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
         <input type="hidden" name="_subject" value="New inquiry from jcseng.com">
         <button type="submit" class="btn">Send message {ARROW}</button>
         <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
-        <p class="form-note">We'll respond within one business day. Your details are used only to reply to you — see our <a href="/privacy/">privacy policy</a>.</p>
+        <p class="form-note">We'll respond within one business day. Your details are used only to reply to you. See our <a href="/privacy/">privacy policy</a>.</p>
       </form>
-      <template id="form-success-tpl"><div class="form-success">{CHECK}<h3>Message received.</h3><p>Thanks — we'll be in touch within one business day. If it's time-sensitive, call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>.</p></div></template>
+      <template id="form-success-tpl"><div class="form-success">{CHECK}<h3>Message received.</h3><p>Thanks. We'll be in touch within one business day. If it's time-sensitive, call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>.</p></div></template>
     </div></section>
     <div class="map-section"><iframe title="Map showing the JCS Engineering office at 5540 Centerview Drive, Raleigh, North Carolina" src="{C.MAP_SRC}" width="1200" height="420" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
 '''
@@ -730,16 +730,16 @@ def privacy():
       <p>This site collects personal information in exactly one place: the contact form. We use what you send us to reply to you. We don't run advertising, we don't sell or share your information for marketing, and we don't set analytics cookies.</p>
       <h2>What we collect</h2>
       <h3>Contact form</h3>
-      <p>If you submit the form on our <a href="/contact/">contact page</a>, we receive the information you enter: your name, email address, message, and — if you choose to provide them — company, phone number, and project stage. We use this to respond to your inquiry and, if we work together, as part of our business records.</p>
+      <p>If you submit the form on our <a href="/contact/">contact page</a>, we receive the information you enter: your name, email address, message, and, if you choose to provide them, company, phone number, and project stage. We use this to respond to your inquiry and, if we work together, as part of our business records.</p>
       <h3>Server logs</h3>
-      <p>Like every website, our hosting provider records technical information about requests — IP address, browser type, pages requested, and timestamps — for security and to keep the site running. We don't combine this with anything that identifies you.</p>
+      <p>Like every website, our hosting provider records technical information about requests (IP address, browser type, pages requested, and timestamps) for security and to keep the site running. We don't combine this with anything that identifies you.</p>
       <h2>Third parties involved in this site</h2>
       <ul>
         <li><strong>Formspree</strong> processes contact-form submissions and delivers them to us by email. See <a href="https://formspree.io/legal/privacy-policy/" rel="noopener">Formspree's privacy policy</a>.</li>
         <li><strong>Cloudflare</strong> hosts and serves this website and provides security services. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</li>
         <li><strong>Google Maps</strong> provides the embedded map on the contact page. Loading it sends a request to Google, which may set cookies according to <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>. The map only loads when you scroll to it.</li>
       </ul>
-      <p>Fonts are served from our own domain, not from a third-party font service. We notify search engines of new pages through the IndexNow protocol; that sends them our page URLs and nothing about you. We may use <strong>Cloudflare Web Analytics</strong> to count page views; it is cookieless, does not fingerprint devices, and does not track you across sites — see <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">how it works</a>.</p>
+      <p>Fonts are served from our own domain, not from a third-party font service. We notify search engines of new pages through the IndexNow protocol; that sends them our page URLs and nothing about you. We may use <strong>Cloudflare Web Analytics</strong> to count page views; it is cookieless, does not fingerprint devices, and does not track you across sites. See <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">how it works</a>.</p>
       <h2>Cookies</h2>
       <p>We do not set cookies for analytics, advertising, or tracking; Cloudflare Web Analytics works without cookies. The embedded Google Map may set its own cookies when it loads, as described above.</p>
       <h2>How long we keep it</h2>
@@ -784,7 +784,7 @@ def notfound():
 # =============================================================================================
 def robots():
     ai = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "PerplexityBot", "ClaudeBot", "Claude-SearchBot", "anthropic-ai", "Google-Extended", "Applebot-Extended", "Bytespider", "CCBot", "cohere-ai", "meta-externalagent"]
-    lines = ["# jcseng.com — all major search and AI crawlers welcome; utility paths excluded.", "User-agent: *", "Allow: /", "Disallow: /docs/", "Disallow: /tools/", "Disallow: /.github/", ""]
+    lines = ["# jcseng.com: all major search and AI crawlers welcome; utility paths excluded.", "User-agent: *", "Allow: /", "Disallow: /docs/", "Disallow: /tools/", "Disallow: /.github/", ""]
     for ua in ["Googlebot", "Bingbot", "DuckDuckBot", "Slurp", "Applebot"] + ai:
         lines += [f"User-agent: {ua}", "Allow: /", ""]
     lines += [f"Sitemap: {SITE}/sitemap.xml", ""]
@@ -811,7 +811,7 @@ def llms_txt():
              "- Clients: manufacturing owners, CDMOs, and the design firms and contractors that serve them", ""]
     if C.FOUNDING_YEAR: lines.insert(6, f"- Founded: {C.FOUNDING_YEAR}")
     lines += ["## Services"] + [f"- [{unesc(s['title'])}]({SITE}{svc_url(s)}): {unesc(s['short'])}" for s in C.SERVICES] + [""]
-    lines += ["## Key pages", f"- [Capabilities]({SITE}/capabilities/)", f"- [Approach — stage-gate delivery, engagement models, standards]({SITE}/approach/)", *([f"- [Representative experience]({SITE}/experience/)"] if C.PUBLISH_EXPERIENCE else []),
+    lines += ["## Key pages", f"- [Capabilities]({SITE}/capabilities/)", f"- [Approach: stage-gate delivery, engagement models, standards]({SITE}/approach/)", *([f"- [Representative experience]({SITE}/experience/)"] if C.PUBLISH_EXPERIENCE else []),
               f"- [Service areas]({SITE}/service-areas/)", f"- [About and leadership]({SITE}/about/)", f"- [FAQ]({SITE}/faq/)", f"- [Contact]({SITE}/contact/)", ""]
     lines += ["## Insights"] + [f"- [{unesc(p['title'])}]({SITE}{post_url(p)}): {unesc(p['excerpt'])}" for p in C.POSTS] + [""]
     lines += ["## Optional", f"- [Privacy policy]({SITE}/privacy/)", f"- [Sitemap]({SITE}/sitemap.xml)", ""]

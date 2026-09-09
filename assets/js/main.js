@@ -1,4 +1,4 @@
-/* JCS Engineering — site behaviour */
+/* JCS Engineering site behaviour */
 (function () {
   'use strict';
 
@@ -135,7 +135,7 @@
           form.reset();
           status.hidden = false;
           status.className = 'form-status';
-          status.textContent = 'Message received — we’ll be in touch within one business day.';
+          status.textContent = 'Message received. We’ll be in touch within one business day.';
         }
         // Move focus so screen readers announce the outcome.
         var h = document.querySelector('.form-success h3');
