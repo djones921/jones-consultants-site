@@ -198,7 +198,7 @@ Edit content in `tools/siteconfig.py`, run the build, commit the result. Hand-ed
 
 **CI:** `.github/workflows/seo-check.yml` runs on every pull request — build freshness, html-validate, link check (lychee), Lighthouse CI budgets (`lighthouserc.json`). `.github/workflows/indexnow.yml` notifies Bing/IndexNow after each deploy to `main`.
 
-**SEO documents** (`docs/`, served with `X-Robots-Tag: noindex`): `SEO_AUDIT.md` · `SEO_KEYWORD_MAP.md` · `SEO_CONTENT_CALENDAR.md` · `SEO_OWNER_CHECKLIST.md` · `SEO_RESULTS.md` · `seo_page_inventory.csv`.
+**SEO documents** (`docs/`, served with `X-Robots-Tag: noindex`): `SEO_ACTION_PLAN.md` (step-by-step owner guide, start here) · `SEO_AUDIT.md` · `SEO_KEYWORD_MAP.md` · `SEO_CONTENT_CALENDAR.md` · `SEO_OWNER_CHECKLIST.md` · `SEO_RESULTS.md` · `seo_page_inventory.csv`.
 
 ---
 
