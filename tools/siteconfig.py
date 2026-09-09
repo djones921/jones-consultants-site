@@ -46,7 +46,7 @@ INDEXNOW_KEY = "9f3a6c2e8d4b4f1a9c7e5b2d8a6f4c3e"   # 32-hex key; file /<key>.tx
 
 # ---- Third parties -------------------------------------------------------------------------
 FORMSPREE = "https://formspree.io/f/xqadzgzp"
-MAP_SRC = "https://www.google.com/maps?q=5540+Centerview+Dr+Ste+200-210,+Raleigh,+NC+27606&output=embed"
+MAP_SRC = "https://www.google.com/maps?q=5540+Centerview+Dr,+Raleigh,+NC+27606&output=embed"
 
 # ---- Geography ------------------------------------------------------------------------------
 AREA_SERVED = [  # (name, type)  — emitted as schema.org City / AdministrativeArea / State
