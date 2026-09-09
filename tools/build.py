@@ -714,7 +714,7 @@ def contact():
       </form>
       <template id="form-success-tpl"><div class="form-success">{CHECK}<h3>Message received.</h3><p>Thanks — we'll be in touch within one business day. If it's time-sensitive, call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>.</p></div></template>
     </div></section>
-    <div class="map-section"><iframe title="Map showing the JCS Engineering office at 5540 Centerview Drive, Raleigh, North Carolina" src="{C.MAP_SRC}" width="1200" height="420" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="map-section"><iframe title="Map showing the JCS Engineering office at 5540 Centerview Drive, Raleigh, North Carolina" src="{C.MAP_SRC}" width="1200" height="420" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
 '''
     ld = ld_graph(ld_webpage("/contact/", title, desc, "ContactPage", {"mainEntity": {"@id": ORG_ID}}), ld_breadcrumbs(crumbs))
     return page("/contact/", title, desc, body, ld)
