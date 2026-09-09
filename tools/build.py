@@ -220,7 +220,7 @@ def cta_band(h="Let's talk about your project.", p="Tell us where it stands, whe
       <div class="container inner">
         <div class="reveal"><h2>{h}</h2><p>{p}</p></div>
         <div class="ctas reveal">
-          <a class="btn btn-lg" href="/contact/">Start a conversation {ARROW}</a>
+          <a class="btn btn-lg" href="/contact/">Contact us {ARROW}</a>
           <a class="btn ghost btn-lg" href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>
         </div>
       </div>
@@ -334,7 +334,7 @@ def home():
           <h1>Capital projects delivered with <em>engineering discipline</em>.</h1>
           <p class="lede">JCS Engineering provides project engineering, design, CQV, and project management for pharmaceutical, biotech, and advanced manufacturing facilities in the Research Triangle and across North Carolina, from concept through qualified handover.</p>
           <div class="ctas">
-            <a class="btn" href="/contact/">Start a conversation {ARROW}</a>
+            <a class="btn" href="/contact/">Contact us {ARROW}</a>
             <a class="btn ghost" href="/capabilities/">What we do</a>
           </div>
           <dl class="stats">
