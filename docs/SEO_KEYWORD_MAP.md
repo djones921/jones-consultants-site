@@ -58,7 +58,7 @@
 ### 05 Change, Risk & Compliance Management — `/capabilities/change-risk-compliance/`
 | Role | Keyword | Intent |
 |---|---|---|
-| Primary | GMP change control consultant capital projects | commercial |
+| Primary | project change control capital projects pharmaceutical | commercial |
 | Secondary | engineering change management pharmaceutical · project risk register consultant · inspection readiness consulting engineering · design qualification support · document control capital projects | commercial |
 | Long-tail | how to manage change on a pharma construction project | informational (→ blog) |
 
@@ -111,14 +111,31 @@ See `SEO_CONTENT_CALENDAR.md`. Each post targets one informational long-tail fro
 
 ---
 
-## Competitors
+## Competitors — from the owner's SERP survey, 2026-09-08 (incognito, Raleigh/Knightdale)
 
-**Not crawled** (sandbox has no external web access). Owner to fill in: search each Primary keyword above in a private browser window and record the top three non-directory results.
+Fourteen target phrases were searched. JCS did not appear for any — the day-one baseline. Three structural findings shaped the follow-up changes:
 
-| Competitor | URL | Ranks for | Notable pages / schema |
-|---|---|---|---|
-| [VERIFY] | | | |
-| [VERIFY] | | | |
-| [VERIFY] | | | |
+1. **AI Overviews lead every specialist query.** Firms named in them share three traits: a dedicated service page, a city attached to the description ("based in Cary, NC", "office in Raleigh"), and third-party confirmation (Indeed postings, LinkedIn, directories). Site-side traits are now in place; citations remain the gap.
+2. **A local Places pack appears for "pharmaceutical engineering consultant Raleigh NC" and "pharma engineering firm Raleigh NC"**, populated by Business Profiles in the *Engineering consultant* category — including firms with two or zero reviews. This is the most winnable placement; reviews decide order within it.
+3. **"Engineer" as the head noun pulls job-search results** (Jobs tab, salary "People also ask"). Titles and H1s now use *firm / services / consultants*.
 
-Jacobs, IPS, and Arcadis (named by the owner) are aspirational references, not the realistic local competitive set; they rank for brand and national terms JCS should not target.
+| Query | Firms named (AI Overview or Places pack) | Local? |
+|---|---|---|
+| CQV consultant North Carolina | Sequence Inc; Aetresin LLC (Cary); Valspec (Raleigh); NNE; Trinity Consultants; Verista (Durham/Holly Springs); MMR Consulting | Aetresin, Valspec, Sequence |
+| commissioning qualification validation services Raleigh | Sequence Inc; PACIV (Raleigh); Performance Validation; Trinity Consultants; sources: ValoGic Bio, SOKOL GxP, GForce Life Sciences | PACIV, Sequence |
+| owner's representative pharmaceutical projects | Project Farma; Cumming Group; Flexware Innovation; Pure Project Management; AtkinsRéalis | none — open lane |
+| pharmaceutical process engineering design firm NC | Salas O'Brien (Raleigh); Precis Engineering + Architecture; Trinity / Advent Engineering (Raleigh); Sequence | Salas O'Brien, Trinity, Sequence |
+| construction oversight pharmaceutical facility | 35 North; PMA Consultants; Hargrove Engineers & Constructors; BE&K Building Group; Gateway Building Company | none — builders and national CMs |
+| tech transfer consultant pharmaceutical | BioBoston Consulting; Concuir Consulting; Emendo Consulting Group; GMP Pros; ProPharma | none — open lane |
+| pharmaceutical engineering consultant Raleigh NC | **Places pack:** Sequence Inc (Morrisville, 10 reviews); Live Oak Pharmaceutical Consulting; Equagen Engineers (2 reviews); Cornerstone Pharma Consulting; HIPP Design + Consulting (7 reviews); PCI Calibration Consulting; HDR | all — target pack |
+| pharma engineering firm Raleigh NC | **Places pack:** Sequence Inc; Planet Pharma (recruiter); Live Oak Pharmaceutical Consulting | all |
+| engineering consultant Holly Springs NC | Pack: DK Engineering PLLC; Arcadia Consulting Engineers (Apex); RoviSys. Organic: Arcadia; Kimley-Horn Holly Springs location page | pack is proximity-only; location pages rank organically |
+| cGMP facility design engineer company | NNE; Hixson; eXmoor Pharma; KeyPlants; NV5; G-CON Manufacturing | none |
+| capital project management consultant companies | Project Farma; IPM; Planet Pharma; ProPharma; The Austin Company — Google showed *Online appointments / Top rated* filters | none; GBP attribute matters |
+| IQ OQ PQ consultant companies | Sequence Inc (lead); BioBoston; PHARPRO; GK BioScience; Overbrook Scientific; PAR Systems | Sequence |
+| GMP change control consultant companies | ProPharma; The FDA Group; Validant; Lachman Consultants; BioBoston | none — **quality/regulatory consultancies, not engineering; service 05 retargeted to project change control** |
+| what does an owner's engineer do | Organic only: Pure Power Engineering (2022); POWER Magazine (2011); a LinkedIn post (2021) | none — dated, power-sector content; winnable with the published article |
+
+**Benchmark firm:** Sequence Inc (Morrisville) — appears in five of fourteen queries and both local packs. One profile, one category, ten reviews, a page per service.
+
+**Changes made from this survey (2026-09-09):** geography added to every service H1; head nouns changed from "engineer(s)" to "firm/services"; owner's-rep page reworded to "owner's representation firm / services"; service 05 retargeted from "GMP change control consultant" to "project change control capital projects"; hub pages added for Holly Springs, Clayton, and Durham–RTP with distinct content; project-engineering FAQ now asks "What does an owner's engineer do…" verbatim.

@@ -52,6 +52,10 @@ The baseline was already at the performance ceiling; the goal of this work was t
 - Contact form: native validation, success state, failure state — all pass
 - Every referenced `/assets/...` file exists
 
+## Search baseline (owner survey, 2026-09-08)
+
+Fourteen target phrases searched from Raleigh/Knightdale in a private window: JCS appeared for **0 of 14** (site indexed only under the stale "Jones Consultants" title). Competitor detail and the resulting changes are in `SEO_KEYWORD_MAP.md` §Competitors. Re-run the same fourteen searches at 30, 60, and 90 days and record position (Places pack / AI Overview / page 1 / not shown) here.
+
 ## Not done, and why
 
 - **Competitor crawl** — sandbox has no external web access; see `SEO_KEYWORD_MAP.md` §Competitors for the owner to fill in.

@@ -324,7 +324,7 @@ def home():
     inds = "".join(f'<article class="ind reveal"><h3>{i["title"]}</h3><p>{i["body"]}</p></article>' for i in C.INDUSTRIES)
     posts = "".join(f'<article class="card reveal"><p class="eyebrow"><span class="tick"></span>{p["minutes"]} min read</p><h3><a href="{post_url(p)}">{p["title"]}</a></h3><p>{p["excerpt"]}</p><a class="link-arrow" href="{post_url(p)}">Read the article {ARROW}</a></article>' for p in C.POSTS)
     exp_link = f'<a class="link-arrow link-muted" href="/experience/">Representative experience {ARROW}</a>' if C.PUBLISH_EXPERIENCE else ""
-    title = "JCS Engineering PLLC | Pharma Project Engineers, Raleigh NC"
+    title = "JCS Engineering PLLC | Pharma Engineering Firm, Raleigh NC"
     desc = "Licensed NC engineering firm providing project engineering, design, CQV and project management for pharmaceutical, biotech and advanced manufacturing clients."
     body = f'''
     <section class="hero grid-bg">
@@ -517,6 +517,8 @@ def service_areas():
       <h2>Where the work is</h2>
       <p class="reveal">North Carolina has become one of the largest concentrations of pharmaceutical and biologics manufacturing in the United States, and almost all of it sits within a ninety-minute drive of Raleigh. That geography is why a Raleigh-based firm can offer on-site engineering, construction oversight, and CQV leadership without travel overhead — and why we know the contractors, design firms, vendors, and regulators our clients work with.</p>
       <ul class="hubs">{hubs}</ul>
+      <h2>Hub pages</h2>
+      <ul class="hub-services reveal">{"".join(f'<li><a href="/service-areas/{h["slug"]}/"><strong>{h["name"]}</strong><span class="d">{unesc(h["meta"])}</span></a></li>' for h in C.HUB_PAGES)}</ul>
       <h2>How we serve the area</h2>
       <p class="reveal">On-site presence scales with the phase: field time during construction, tie-ins, and CQV; remote work during design review and planning. For programs that need continuous coverage we <a href="/approach/">embed engineers and project managers</a> in the client's organization for the duration. Same-day site visits are practical anywhere in Wake, Durham, and Johnston counties; the corridor east and south of the Triangle is a regular day trip.</p>
       <h2>Municipalities served</h2>
@@ -527,6 +529,28 @@ def service_areas():
 '''
     ld = ld_graph(ld_webpage("/service-areas/", title, desc), ld_breadcrumbs(crumbs))
     return page("/service-areas/", title, desc, body, ld)
+
+def hub_page(h):
+    path = f"/service-areas/{h['slug']}/"
+    title = f'{h["page_title"]} | {LEGAL}'
+    crumbs = [("Home", "/"), ("Service areas", "/service-areas/"), (h["name"], None)]
+    what = "".join(f'<p class="reveal">{p}</p>' for p in h["what"])
+    svcs = "".join(f'<li><a href="{svc_url(svc(sl))}"><strong>{svc(sl)["title"]}</strong><span class="d">{d}</span></a></li>' for sl, d in h["services"])
+    body = page_head(crumbs, h["h1"], f"JCS Engineering serves {h['name']} from Raleigh — {h['drive']} — with on-site, remote, and hybrid engagements under North Carolina Firm License {C.PRINCIPAL['firm_lic']}.") + f'''
+    <section class="section"><div class="container narrow svc">
+      <h2>What the work looks like here</h2>
+      {what}
+      <h2>How we help in {h["name"]}</h2>
+      <ul class="hub-services reveal">{svcs}</ul>
+      <h2>Frequently asked questions</h2>
+      {faq_block(h["faq"])}
+      <div class="svc-cta reveal"><p>Have a project in {h["name"]}? <a href="/contact/">Tell us where it stands</a> or call <a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a>. See all <a href="/service-areas/">service areas</a>.</p></div>
+    </div></section>
+    {cta_band()}
+'''
+    ld = ld_graph(ld_webpage(path, title, h["meta"], "WebPage", {"about": {"@id": ORG_ID}}), ld_breadcrumbs(crumbs), ld_faq(h["faq"]),
+                  {"@type": "Service", "name": f"Engineering services in {unesc(h['name'])}", "provider": {"@id": ORG_ID}, "areaServed": {"@type": "City", "name": unesc(h["name"]).replace(" & Research Triangle Park", "")}, "url": SITE + path})
+    return page(path, title, h["meta"], body, ld)
 
 def experience():
     exps = "".join(f'''
@@ -648,14 +672,14 @@ def about():
     return page("/about/", title, desc, body, ld)
 
 def contact():
-    title = "Contact an Engineer in Raleigh, NC | JCS Engineering PLLC"
+    title = "Contact Our Raleigh Engineering Firm | JCS Engineering PLLC"
     desc = "Contact JCS Engineering in Raleigh, NC about project engineering, design, CQV or owner's representation for a pharma or biotech project. Reply within a day."
     crumbs = [("Home", "/"), ("Contact", None)]
     body = page_head(crumbs, "Let's scope your project.", "Tell us where the project stands — concept, mid-design, or already in the field. We respond within one business day.") + f'''
     <section class="section"><div class="container contact-grid">
       <div class="reveal">
         {eyebrow("Reach Us")}
-        <h2>Direct line to an engineer.</h2>
+        <h2>Direct line to the engineering team.</h2>
         <ul class="contact-list">
           <li><span class="mono">ADDRESS</span><span>{C.ADDRESS["street"] + "<br>" if C.ADDRESS.get("street") else ""}{C.ADDRESS["locality"]}, {C.ADDRESS["region"]} {C.ADDRESS.get("postal") or ""}<br><span class="dim">{C.SERVICE_AREA_LINE}</span></span></li>
           <li><span class="mono">PHONE</span><a href="tel:{C.PHONE_E164}">{C.PHONE_DISPLAY}</a></li>
@@ -844,6 +868,7 @@ if __name__ == "__main__":
     for s in C.SERVICES: write(svc_url(s) + "index.html", service_page(s))
     write("approach/index.html", approach())
     write("service-areas/index.html", service_areas())
+    for h in C.HUB_PAGES: write(f"service-areas/{h['slug']}/index.html", hub_page(h))
     if C.PUBLISH_EXPERIENCE: write("experience/index.html", experience())
     write("faq/index.html", faq_page())
     write("insights/index.html", insights_index())

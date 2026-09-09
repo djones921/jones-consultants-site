@@ -64,7 +64,7 @@ Go to https://business.google.com → your profile → **Edit profile**.
 
 **Hours:** set your real hours **[VERIFY]**, then copy them into `HOURS` in `tools/siteconfig.py`.
 
-**Attributes:** Identifies as veteran-owned / etc. only if true. Under "From the business" add `Online appointments` if you take video calls; `Onsite services: Yes`.
+**Attributes:** Identifies as veteran-owned / etc. only if true. Under "From the business" add **`Online appointments`** (Google offers an *Online appointments* filter on capital-project searches — profiles with the attribute qualify) and `Onsite services: Yes`.
 
 **Website / appointment link:** `https://jcseng.com/` and `https://jcseng.com/contact/`.
 
@@ -95,7 +95,7 @@ Go to https://business.google.com → your profile → **Edit profile**.
 4. *Q: Can you act as an owner's representative?* — A: Yes. Owner's representation is a core service: one point of contact across the design firm, contractors, vendors, and quality organization, answering only to the owner.
 5. *Q: How do we start?* — A: A short scoping call about where the project stands. Call (704) 500-3033 or use https://jcseng.com/contact/ — we reply within one business day.
 
-**Reviews.** Your direct review link: in the profile dashboard click **Ask for reviews** and copy the short link (format `https://g.page/r/XXXXXXXX/review`). Ask after every completed engagement or milestone:
+**Reviews — now the single highest-value item on this list.** The Raleigh Places pack for "pharmaceutical engineering consultant" contains firms with two and zero reviews; two or three genuine reviews would place JCS above half of it. Your direct review link: in the profile dashboard click **Ask for reviews** and copy the short link (format `https://g.page/r/XXXXXXXX/review`). Ask after every completed engagement or milestone:
 
 > Subject: Quick favour — a Google review for JCS Engineering
 >
